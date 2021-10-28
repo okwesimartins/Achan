@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\admin_user;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;   
 use Illuminate\Support\Str;                
@@ -12,9 +13,10 @@ use Validator;
 class AuthController extends Controller
 {
      public function register(Request $request){
+         
         $rules=[
-            'name' => 'required|unique:admin|min:3|max:50',
-            'email' => 'email|unique:admin|',
+            'name' => 'required|min:3|max:50',
+            'email' => 'email|unique:admins|',
             'password' => 'required|confirmed|min:6'
             // 'password_confirmation' =>'required|min:6'
          ];
@@ -48,7 +50,7 @@ class AuthController extends Controller
  
              config(['auth.guards.api.provider' => 'admin']);
              
-             $admin = Admin::select('admins.*')->find(auth()->guard('admin')->user()->id);
+             $admin =auth()->guard('admin')->user();//Admin::select('admins.*')->find(auth()->guard('admin')->user()->id);
              $success =  $admin;
              $success['token'] =  $admin->createToken('MyApp',['admin'])->accessToken; 
  
@@ -57,29 +59,40 @@ class AuthController extends Controller
              return response()->json(['error' => ['Email and Password are Wrong.']], 200);
          }
      }
-
+    
      public function createbranch(Request $request){
-            
+       
+        
+          
+        
+
             $rules=[
             'branchname' => 'required|min:3|max:50',
-            'branchemail' => 'email|unique:users',
+            'branchemail' => 'email|unique:users|',
             'password' => 'required|confirmed|min:6'
             
               ];
+
          $validator = Validator::make($request->all(),$rules);
          if($validator->fails()){
-             return response()->json([$validator->errors()]);
-         }else{
+             return response()->json($validator->errors());
+         }
+         
+         else{
+             
             $var = Str::random(32);
-
-            User::create([
+            $id= auth()->guard('admin-api')->user()->id;
+           $createuser= User::create([
                 'branchname'=>$request->branchname,
                 'branchemail'=>$request->branchemail,
-                'password'=>$request->password,
+                'password'=>Hash::make($request->password),
                 'branch_location'=>$request->location,
                 'userid'=> $var
           ]);
-
+           admin_user::create([
+                 'user_id'=> $createuser->id,
+                 'admin_id'=>$id
+           ]);
           return response()->json(["status"=>"success","message"=>"user created"]);
          }
               

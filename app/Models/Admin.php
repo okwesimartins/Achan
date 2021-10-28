@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
+use App\Models\User;
+use App\Models\admin_user;
 
 class Admin extends Authenticatable
 {
@@ -17,4 +19,8 @@ class Admin extends Authenticatable
     ];
 
     protected $hidden = ['password','created_at','updated_at',];
+
+    public function branches(){
+        return $this->belongsToMany(User::class,admin_user::class,'admin_id','user_id');
+    }
 }
