@@ -18,7 +18,7 @@ class Admin extends Authenticatable
         'name', 'email', 'password','adminid',
     ];
 
-    protected $hidden = ['password','created_at','updated_at',];
+    protected $hidden = ['password','created_at','updated_at','pivot','email_verified'];
 
     public function branches(){
         return $this->belongsToMany(User::class,admin_user::class,'admin_id','user_id');

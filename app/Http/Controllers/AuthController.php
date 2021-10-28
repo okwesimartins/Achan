@@ -59,13 +59,39 @@ class AuthController extends Controller
              return response()->json(['error' => ['Email and Password are Wrong.']], 200);
          }
      }
+     
+
+
+
+
+
+
+     public function userLogin(Request $request)
+     {
+         $validator = Validator::make($request->all(), [
+             'email' => 'required|email',
+             'password' => 'required',
+         ]);
+ 
+         if($validator->fails()){
+             return response()->json(['error' => $validator->errors()->all()]);
+         }
+ 
+         if(auth()->guard('admin')->attempt(['email' => request('email'), 'password' => request('password')])){
+ 
+             config(['auth.guards.api.provider' => 'admin']);
+             
+             $admin =auth()->guard('admin')->user();//Admin::select('admins.*')->find(auth()->guard('admin')->user()->id);
+             $success =  $admin;
+             $success['token'] =  $admin->createToken('MyApp',['admin'])->accessToken; 
+ 
+             return response()->json($success, 200);
+         }else{ 
+             return response()->json(['error' => ['Email and Password are Wrong.']], 200);
+         }
+     }
     
      public function createbranch(Request $request){
-       
-        
-          
-        
-
             $rules=[
             'branchname' => 'required|min:3|max:50',
             'branchemail' => 'email|unique:users|',
@@ -82,6 +108,8 @@ class AuthController extends Controller
              
             $var = Str::random(32);
             $id= auth()->guard('admin-api')->user()->id;
+           
+            
            $createuser= User::create([
                 'branchname'=>$request->branchname,
                 'branchemail'=>$request->branchemail,
