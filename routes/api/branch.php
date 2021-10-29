@@ -5,4 +5,4 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 
-Route::post('user/login',[AuthController::class, 'userLogin']);
+Route::post('branch/login',[AuthController::class, 'userLogin']);

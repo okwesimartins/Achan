@@ -77,13 +77,13 @@ class AuthController extends Controller
              return response()->json(['error' => $validator->errors()->all()]);
          }
  
-         if(auth()->guard('admin')->attempt(['email' => request('email'), 'password' => request('password')])){
+         if(auth()->guard('user')->attempt(['branchemail' => request('email'), 'password' => request('password')])){
  
-             config(['auth.guards.api.provider' => 'admin']);
+             config(['auth.guards.api.provider' => 'user']);
              
-             $admin =auth()->guard('admin')->user();//Admin::select('admins.*')->find(auth()->guard('admin')->user()->id);
+             $admin =auth()->guard('user')->user();//Admin::select('admins.*')->find(auth()->guard('admin')->user()->id);
              $success =  $admin;
-             $success['token'] =  $admin->createToken('MyApp',['admin'])->accessToken; 
+             $success['token'] =  $admin->createToken('MyApp',['user'])->accessToken; 
  
              return response()->json($success, 200);
          }else{ 
