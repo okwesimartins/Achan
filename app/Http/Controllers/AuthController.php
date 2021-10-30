@@ -124,7 +124,7 @@ class AuthController extends Controller
           return response()->json(["status"=>"success","message"=>"user created"]);
          }
               
-
+        //id_rsa =*=*c!uZTgRd%O8cQR
 
      }
 
