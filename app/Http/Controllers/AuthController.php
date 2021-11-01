@@ -121,7 +121,7 @@ class AuthController extends Controller
                  'user_id'=> $createuser->id,
                  'admin_id'=>$id
            ]);
-          return response()->json(["status"=>"success","message"=>"user created"]);
+          return response()->json(["status"=>"success", "message"=>"user created"]);
          }
               
         //id_rsa =*=*c!uZTgRd%O8cQR
