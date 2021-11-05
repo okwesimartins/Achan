@@ -11,6 +11,6 @@ class achan_branch extends Model
     protected $table = 'achan_branches';
 
     protected $fillable = [
-        'title', 'airport', 'state','phone_num','wha_num','name','email','phone','password','slot_count'
+        'title', 'airport', 'state','phone_num',
     ];
 }
