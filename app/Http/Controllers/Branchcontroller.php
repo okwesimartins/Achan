@@ -17,7 +17,7 @@ class Branchcontroller extends Controller
     }
     public function achanbranch(){
 
-        $branch= achan_branch::select('uid','title','airport','state','phone_num')->get();
+        $branch= achan_branch::get();
         return response()->json($branch);
  }
 

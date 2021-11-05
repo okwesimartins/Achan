@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Trips;
+use App\Models\Achanprices;
 use Validator;
 use Carbon\Carbon;
 class Booktrips extends Controller
@@ -159,6 +160,62 @@ class Booktrips extends Controller
           }
      
 
+
+
+    }
+
+    public function getestimate(Request $request){
+           $destination = $request->destination;
+           $from = $request->from;
+           $destination_address= $request->dest_address;
+           $date = $request->date;
+            $time = $request->time;
+
+            $returndate = $request->returndate;
+            $returntime = $request->returntime;
+
+            if($returndate && $returntime){
+                $price = Achanprices::select('area','price')->where('area',$destination )->first();
+                
+                $ext_min=$price['price'];
+                $int_min=(int)$ext_min ;
+                $incrementby=500;
+                $ext_max= $int_min + $incrementby;
+                $ext_max2=(string)$ext_max;
+                return response()->json([
+                       "first_cost"=>[
+                           "from"=> $from,
+                           "to"=>  $destination_address,
+                           "date"=>$date,
+                           "est_min"=>$ext_min,
+                           "est_max"=>$ext_max2
+                       ],
+                       "second_cost"=>[
+                        "from"=> $destination_address,
+                        "to"=>  $from,
+                        "date"=>$date,
+                        "est_min"=>$ext_min,
+                        "est_max"=>$ext_max2
+                    ]
+                ]);
+                 
+            }else{
+                $price = Achanprices::select('area','price')->where('area',$destination )->first();
+                $ext_min=$price['price'];
+                $int_min=(int)$ext_min;
+                $incrementby=500;
+                $ext_max= $int_min + $incrementby;
+                $ext_max2=(string)$ext_max;
+                return response()->json([
+                       
+                           "from"=> $from,
+                           "to"=>  $destination_address,
+                           "date"=>$date,
+                           "est_min"=>$ext_min,
+                           "est_max"=>$ext_max2
+                ]);
+            }
+           
 
 
     }

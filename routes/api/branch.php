@@ -7,7 +7,7 @@ use App\Http\Controllers\Branchcontroller;
 use App\Http\Controllers\Booktrips;
 Route::post('booktrip',[Booktrips::class, 'booktrip']);
 
-Route::post('spoon',[Booktrips::class, 'getestimate']);
+Route::post('estimate',[Booktrips::class, 'getestimate']);
 
 
 Route::post('airline_branch/{admin}',[Branchcontroller::class, 'airlinebranch']);
