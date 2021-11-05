@@ -93,7 +93,7 @@ class AuthController extends Controller
     
      public function createbranch(Request $request){
             $rules=[
-            'branchname' => 'required|min:3|max:50',
+           
             'branchemail' => 'email|unique:users|',
             'password' => 'required|confirmed|min:6'
             
@@ -111,7 +111,7 @@ class AuthController extends Controller
            
             
            $createuser= User::create([
-                'branchname'=>$request->branchname,
+               
                 'branchemail'=>$request->branchemail,
                 'password'=>Hash::make($request->password),
                 'branch_location'=>$request->location,

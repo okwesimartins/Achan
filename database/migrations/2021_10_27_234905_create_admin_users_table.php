@@ -12,7 +12,7 @@ class CreateAdminUsersTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   
         Schema::create('admin_users', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
@@ -21,6 +21,7 @@ class CreateAdminUsersTable extends Migration
             ->on('users')
             ->cascade('delete');
 
+            
             $table->unsignedBigInteger('admin_id');
             $table->foreign('admin_id')
             ->references('id')

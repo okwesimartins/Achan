@@ -23,4 +23,8 @@ class Admin extends Authenticatable
     public function branches(){
         return $this->belongsToMany(User::class,admin_user::class,'admin_id','user_id');
     }
+
+    public function getRouteKeyName(){
+        return 'adminid';
+    }
 }
