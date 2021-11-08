@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\Trips;
 use App\Models\admin_user;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;   
@@ -82,6 +83,8 @@ class AuthController extends Controller
 
                     return response()->json($success, 200);
                 }
+             }else{
+                 return response()->json(["status"=>"failed","message"=>"branchid does not exist"]);
              }
             
              
@@ -149,6 +152,77 @@ class AuthController extends Controller
               
         //id_rsa =*=*c!uZTgRd%O8cQR
 
+     }
+
+     public function dashboardapi(){
+        
+        $branch = auth()->guard('admin-api')->user()->branches()->get();
+        $array1=array();
+        foreach ($branch as  $value) {
+               $userid= $value->userid;
+
+               $totalrev = Trips::where('airline_branch_id',$userid)->sum('total');
+               $totalbooking = Trips::where('airline_branch_id',$userid)->count();
+               
+               $total_in_int=(int)$totalrev;
+               $commission = $total_in_int * 0.1 ;
+               
+               
+               $array2 = [
+                      "userid"=>$value->userid,
+                      "location"=>$value->branch_location,
+                      "branchemail"=>$value->branchemail,
+                      "totalrev"=>$total_in_int,
+                      "commission"=>$commission,
+                      "totalbooking"=> $totalbooking ,
+                      "totalpassenger"=> $totalbooking 
+
+               ];
+               
+               array_push($array1,$array2);
+              
+
+               
+               
+        }
+
+        $sumrev = 0;
+        $sumcom = 0;
+        $bookings =0;
+        $passenger=0;
+        foreach($array1 as $value){
+       
+        if(isset($value['totalrev'])){
+            $num= $value['totalrev'];
+           
+          
+            $sumrev +=  $num;
+        }  
+        if(isset($value['commission'])){
+            $sumcom += $value['commission'];
+        }
+        if(isset($value['totalbooking'])){
+            $bookings += $value['totalbooking'];
+        }
+        if(isset($value['totalpassenger'])){
+            $passenger += $value['totalpassenger'];
+        }
+       
+       
+        }
+        $admin= Auth::guard('admin-api')->user();
+     
+        return response()->json([
+            "name"=>$admin['name'],
+            "email"=>$admin['email'],
+            "adminid"=>$admin['adminid'],
+            "total_rev"=>$sumrev,
+            "total_com"=> $sumcom,
+            "bookings"=>  $bookings,
+            "passenger"=>  $passenger
+
+
+        ]);
      }
 
 }

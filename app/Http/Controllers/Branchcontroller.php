@@ -8,12 +8,39 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\achan_branch;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Trips;
 class Branchcontroller extends Controller
 {
     public function branches(){
-           $branch= auth()->guard('admin-api')->user()->branches()->get();
+           $branch = auth()->guard('admin-api')->user()->branches()->get();
+           $array1=array();
+           foreach ($branch as  $value) {
+                  $userid= $value->userid;
 
-           return response()->json($branch);
+                  $totalrev = Trips::where('airline_branch_id',$userid)->sum('total');
+
+                  $total_in_int=(int)$totalrev;
+                  $commission = $total_in_int * 0.1 ;
+                  
+                  
+                  $array2 = [
+                         "userid"=>$value->userid,
+                         "location"=>$value->branch_location,
+                         "branchemail"=>$value->branchemail,
+                         "totalrev"=>$total_in_int,
+                         "commission"=>$commission
+
+                  ];
+                  
+                  array_push($array1,$array2);
+                 
+
+                  
+                  
+           }
+          
+
+           return response()->json($array1);
     }
     public function achanbranch(){
 
@@ -30,5 +57,24 @@ class Branchcontroller extends Controller
 
 
 
+ }
+ public function achandashboard(){
+        $branch = auth()->guard('user-api')->user();
+        $branchid = $branch->userid;
+
+        $totalrev= Trips::where('airline_branch_id', $branchid)->sum('total');
+        $totalbooking= Trips::where('airline_branch_id', $branchid)->count();
+        $total_in_int=(int)$totalrev;
+        $commission = $total_in_int * 0.1 ;
+
+        return response()->json([
+                "branchemail" => $branch->branchemail,
+                "branch_location"=> $branch->branch_location,
+                "userid"=> $branch->userid,
+                "total"=> $total_in_int,
+                "commission"=> $commission,
+                "totalbooking"=> $totalbooking,
+                "totalpassengers"=>$totalbooking
+        ]);
  }
 }
