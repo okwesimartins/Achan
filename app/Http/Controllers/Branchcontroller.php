@@ -24,7 +24,7 @@ class Branchcontroller extends Controller
                      if($tripcheck){
 
                             
-                            $totalrev = Trips::where('airline_branch_id',$userid)->sum('total');
+                            $totalrev = Trips::where('airline_branch_id',$userid)->get()->sum('total');
                             $total_in_int=(int)$totalrev;
                             $commission = $total_in_int * 0.1 ;
                             
