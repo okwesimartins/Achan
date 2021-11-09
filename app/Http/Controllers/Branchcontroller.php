@@ -15,6 +15,8 @@ class Branchcontroller extends Controller
            $branch = auth()->guard('admin-api')->user()->branches()->get();
            if($branch){
               $array1=array();
+
+              dd($branch);
               foreach ($branch as  $value) {
                      $userid= $value->userid;
    
