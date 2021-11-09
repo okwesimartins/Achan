@@ -16,26 +16,43 @@ class Branchcontroller extends Controller
            if($branch){
               $array1=array();
 
-              dd($branch);
+           
+
               foreach ($branch as  $value) {
                      $userid= $value->userid;
-   
-                     $totalrev = Trips::where('airline_branch_id',$userid)->sum('total');
-   
-                     $total_in_int=(int)$totalrev;
-                     $commission = $total_in_int * 0.1 ;
+                     $tripcheck = Trips::where('airline_branch_id',$userid)->get();
+                     if($tripcheck){
+                            $totalrev = Trips::where('airline_branch_id',$userid)->sum('total');
+                            $total_in_int=(int)$totalrev;
+                            $commission = $total_in_int * 0.1 ;
+                            
+                            
+                            $array2 = [
+                                   "userid"=>$value->userid,
+                                   "location"=>$value->branch_location,
+                                   "branchemail"=>$value->branchemail,
+                                   "totalrev"=>$total_in_int,
+                                   "commission"=>$commission
+          
+                            ];
+                            
+                            array_push($array1,$array2);
+                     }else{
+                            $array2 = [
+                                   "userid"=>$value->userid,
+                                   "location"=>$value->branch_location,
+                                   "branchemail"=>$value->branchemail,
+                                   "totalrev"=>"0",
+                                   "commission"=>"0"
+          
+                            ];
+
+
+                            array_push($array1,$array2);
+                     }
+                           
                      
-                     
-                     $array2 = [
-                            "userid"=>$value->userid,
-                            "location"=>$value->branch_location,
-                            "branchemail"=>$value->branchemail,
-                            "totalrev"=>$total_in_int,
-                            "commission"=>$commission
-   
-                     ];
-                     
-                     array_push($array1,$array2);
+                 
                     
    
                      
