@@ -88,7 +88,7 @@ class Branchcontroller extends Controller
         $branch = auth()->guard('user-api')->user();
         $branchid = $branch->userid;
 
-        $totalrev= Trips::where('airline_branch_id', $branchid)->sum('total');
+        $totalrev= Trips::where('airline_branch_id', $branchid)->get()->sum('total');
         $totalbooking= Trips::where('airline_branch_id', $branchid)->count();
         $total_in_int=(int)$totalrev;
         $commission = $total_in_int * 0.1 ;

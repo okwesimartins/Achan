@@ -160,7 +160,8 @@ class AuthController extends Controller
         $array1=array();
         foreach ($branch as  $value) {
                $userid= $value->userid;
-
+               $tripcheck = Trips::where('airline_branch_id',$userid)->get();
+               if($tripcheck){
                $totalrev = Trips::where('airline_branch_id',$userid)->sum('total');
                $totalbooking = Trips::where('airline_branch_id',$userid)->count();
                
@@ -182,7 +183,21 @@ class AuthController extends Controller
                array_push($array1,$array2);
               
 
-               
+            }else{
+                $totalbooking = Trips::where('airline_branch_id',$userid)->count();
+                $array2 = [
+                    "userid"=>$value->userid,
+                    "location"=>$value->branch_location,
+                    "branchemail"=>$value->branchemail,
+                    "totalrev"=>"0",
+                    "commission"=>"0",
+                    "totalbooking"=> $totalbooking ,
+                    "totalpassenger"=> $totalbooking 
+
+             ];
+             
+             array_push($array1,$array2);
+            }
                
         }
 
