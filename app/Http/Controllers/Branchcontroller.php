@@ -13,34 +13,39 @@ class Branchcontroller extends Controller
 {
     public function branches(){
            $branch = auth()->guard('admin-api')->user()->branches()->get();
-           $array1=array();
-           foreach ($branch as  $value) {
-                  $userid= $value->userid;
-
-                  $totalrev = Trips::where('airline_branch_id',$userid)->sum('total');
-
-                  $total_in_int=(int)$totalrev;
-                  $commission = $total_in_int * 0.1 ;
-                  
-                  
-                  $array2 = [
-                         "userid"=>$value->userid,
-                         "location"=>$value->branch_location,
-                         "branchemail"=>$value->branchemail,
-                         "totalrev"=>$total_in_int,
-                         "commission"=>$commission
-
-                  ];
-                  
-                  array_push($array1,$array2);
-                 
-
-                  
-                  
+           if($branch){
+              $array1=array();
+              foreach ($branch as  $value) {
+                     $userid= $value->userid;
+   
+                     $totalrev = Trips::where('airline_branch_id',$userid)->sum('total');
+   
+                     $total_in_int=(int)$totalrev;
+                     $commission = $total_in_int * 0.1 ;
+                     
+                     
+                     $array2 = [
+                            "userid"=>$value->userid,
+                            "location"=>$value->branch_location,
+                            "branchemail"=>$value->branchemail,
+                            "totalrev"=>$total_in_int,
+                            "commission"=>$commission
+   
+                     ];
+                     
+                     array_push($array1,$array2);
+                    
+   
+                     
+                     
+              }
+             
+   
+              return response()->json($array1);
+           }else{
+              return response()->json(["status"=>"failed","message"=>"Branches yet"]); 
            }
-          
-
-           return response()->json($array1);
+       
     }
     public function achanbranch(){
 
