@@ -17,7 +17,7 @@ Route::post('branch/login',[AuthController::class, 'userLogin']);
 
 Route::group(['prefix' => 'branch','middleware' => ['auth:user-api','scopes:user']],function(){
     Route::get('dashboard_api',[Branchcontroller::class, 'achandashboard']);  
-    Route::get('branchcom',[Graphcontroller::class, 'branchcomgraph']);  
+    Route::get('branchcomgraph',[Graphcontroller::class, 'branchcomgraph']);  
 
     Route::get('branchgraph',[Graphcontroller::class, 'branchgraph']);    
 });
