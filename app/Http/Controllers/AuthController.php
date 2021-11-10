@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;   
 use Illuminate\Support\Str;                
 use Validator;
+use Carbon\Carbon;
 class AuthController extends Controller
 {
      public function register(Request $request){
@@ -158,12 +159,16 @@ class AuthController extends Controller
         
         $branch = auth()->guard('admin-api')->user()->branches()->get();
         $array1=array();
+
+        $carbondate=Carbon::now();
+        $day= $carbondate->day;
+
         foreach ($branch as  $value) {
                $userid= $value->userid;
-               $tripcheck = Trips::where('airline_branch_id',$userid)->get();
+               $tripcheck = Trips::where('airline_branch_id',$userid)->where('day', $day)->get();
                if($tripcheck){
-               $totalrev = Trips::where('airline_branch_id',$userid)->sum('total');
-               $totalbooking = Trips::where('airline_branch_id',$userid)->count();
+               $totalrev = Trips::where('airline_branch_id',$userid)->where('day', $day)->sum('total');
+               $totalbooking = Trips::where('airline_branch_id',$userid)->where('day', $day)->count();
                
                $total_in_int=(int)$totalrev;
                $commission = $total_in_int * 0.1 ;

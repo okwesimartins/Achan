@@ -9,6 +9,7 @@ use App\Models\achan_branch;
 use App\Models\User;
 use App\Models\Admin;
 use App\Models\Trips;
+use Carbon\Carbon;
 class Branchcontroller extends Controller
 {
     public function branches(){
@@ -16,24 +17,29 @@ class Branchcontroller extends Controller
            if($branch){
               $array1=array();
 
-           
-
+              $carbondate=Carbon::now();
+              $day= $carbondate->day;
               foreach ($branch as  $value) {
                      $userid= $value->userid;
-                     $tripcheck = Trips::where('airline_branch_id',$userid)->get();
+                     $tripcheck = Trips::where('airline_branch_id',$userid)->where('day',$day)->get();
                      if($tripcheck){
 
                             
-                            $totalrev = Trips::where('airline_branch_id',$userid)->get()->sum('total');
+                            $totalrev = Trips::where('airline_branch_id',$userid)->where('day',$day)->get()->sum('total');
+                           
+                            
                             $total_in_int=(int)$totalrev;
-                            $commission = $total_in_int * 0.1 ;
+                            $commission = $total_in_int * 0.1;
+                           
+                            
+                            
                             
                             
                             $array2 = [
                                    "userid"=>$value->userid,
                                    "location"=>$value->branch_location,
                                    "branchemail"=>$value->branchemail,
-                                   "totalrev"=>$total_in_int,
+                                   "totalrev"=>$totalrev,
                                    "commission"=>$commission
           
                             ];
@@ -87,20 +93,37 @@ class Branchcontroller extends Controller
  public function achandashboard(){
         $branch = auth()->guard('user-api')->user();
         $branchid = $branch->userid;
-
-        $totalrev= Trips::where('airline_branch_id', $branchid)->get()->sum('total');
-        $totalbooking= Trips::where('airline_branch_id', $branchid)->count();
-        $total_in_int=(int)$totalrev;
-        $commission = $total_in_int * 0.1 ;
-
-        return response()->json([
-                "branchemail" => $branch->branchemail,
-                "branch_location"=> $branch->branch_location,
-                "userid"=> $branch->userid,
-                "total"=> $total_in_int,
-                "commission"=> $commission,
-                "totalbooking"=> $totalbooking,
-                "totalpassengers"=>$totalbooking
-        ]);
+        $carbondate=Carbon::now();
+        $day= $carbondate->day;
+        $totalrev= Trips::where('airline_branch_id', $branchid)->where('day',$day)->get()->sum('total');
+        if($totalrev){
+              $totalbooking= Trips::where('airline_branch_id', $branchid)->where('day',$day)->count();
+              $total_in_int=(int)$totalrev;
+              $commission = $total_in_int * 0.1 ;
+      
+              return response()->json([
+                      "branchemail" => $branch->branchemail,
+                      "branch_location"=> $branch->branch_location,
+                      "userid"=> $branch->userid,
+                      "total"=> $total_in_int,
+                      "commission"=> $commission,
+                      "totalbooking"=> $totalbooking,
+                      "totalpassengers"=>$totalbooking
+              ]);
+        }else{
+              $totalbooking= Trips::where('airline_branch_id', $branchid)->where('day',$day)->count();
+            
+      
+              return response()->json([
+                      "branchemail" => $branch->branchemail,
+                      "branch_location"=> $branch->branch_location,
+                      "userid"=> $branch->userid,
+                      "total"=> $total_in_int,
+                      "commission"=> "0",
+                      "totalbooking"=> $totalbooking,
+                      "totalpassengers"=>$totalbooking
+              ]);
+        }
+    
  }
 }
