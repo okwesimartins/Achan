@@ -167,7 +167,7 @@ class AuthController extends Controller
                $userid= $value->userid;
                $tripcheck = Trips::where('airline_branch_id',$userid)->where('day', $day)->get();
                if($tripcheck){
-               $totalrev = Trips::where('airline_branch_id',$userid)->where('day', $day)->sum('total');
+               $totalrev = Trips::where('airline_branch_id',$userid)->where('day', $day)->get()->sum('total');
                $totalbooking = Trips::where('airline_branch_id',$userid)->where('day', $day)->count();
                
                $total_in_int=(int)$totalrev;
