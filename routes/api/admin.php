@@ -12,5 +12,7 @@ Route::group( ['prefix' => 'admin','middleware' => ['auth:admin-api','scopes:adm
      Route::get('admin_graph',[Graphcontroller::class, 'graph']);
      Route::get('dashboardapi',[AuthController::class, 'dashboardapi']);
      Route::post('create_branches',[AuthController::class, 'createbranch']);
+
+     Route::get('admingraphcom',[Graphcontroller::class, 'admincomgraph']);  
      Route::get('branches',[Branchcontroller::class, 'branches']);
  });
