@@ -16,7 +16,7 @@ class Tripscontroller extends Controller
         $tripsarray = array();
         foreach($branch as $value){
             $userid= $value->userid;
-            $tripcheck = Trips::where('airline_branch_id',$userid)->where('year',$year)->latest()->get();
+            $tripcheck = Trips::where('airline_branch_id',$userid)->where('year',$year)->get();
 
             if(empty($tripcheck)){
                return response()->json(["status"=>"failed","message"=>"No trips yet"]);
