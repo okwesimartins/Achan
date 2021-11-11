@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Branchcontroller;
 use App\Http\Controllers\Booktrips;
 use App\Http\Controllers\Graphcontroller;
+use App\Http\Controllers\Tripsforbranchcontroller;
 Route::post('booktrip',[Booktrips::class, 'booktrip']);
 
 Route::post('estimate',[Booktrips::class, 'getestimate']);
@@ -18,6 +19,11 @@ Route::post('branch/login',[AuthController::class, 'userLogin']);
 Route::group(['prefix' => 'branch','middleware' => ['auth:user-api','scopes:user']],function(){
     Route::get('dashboard_api',[Branchcontroller::class, 'achandashboard']);  
     Route::get('branchcomgraph',[Graphcontroller::class, 'branchcomgraph']);  
+    
+    Route::get('branchtripcomplete',[Tripsforbranchcontroller::class, 'branchtripscomplete']); 
+    Route::get('branchtrippending',[Tripsforbranchcontroller::class, 'branchpending']); 
+    Route::get('branchtripcancelled',[Tripsforbranchcontroller::class, 'branchtripscancelled']); 
+    Route::get('branchalltrips',[Tripsforbranchcontroller::class, 'allbranchtrips']);
 
     Route::get('branchgraph',[Graphcontroller::class, 'branchgraph']);    
 });
