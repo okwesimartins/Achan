@@ -66,7 +66,8 @@ class Tripscontroller extends Controller
                         "destination"=>$value1->dest_area,
                         "booking_date"=>$value1->booking_date,
                         "booking_time"=>$value1->booking_time,
-                        "status"=>$value1->status
+                        "status"=>$value1->status,
+                        "tickets"=>$value1->tickets
                     ];
                     array_push($tripsarray, $trip);
                 }
@@ -100,7 +101,8 @@ public function adminpendingtrip(){
                     "destination"=>$value1->dest_area,
                     "booking_date"=>$value1->booking_date,
                     "booking_time"=>$value1->booking_time,
-                    "status"=>$value1->status
+                    "status"=>$value1->status,
+                    "tickets"=>$value1->tickets
                 ];
                 array_push($tripsarray, $trip);
             }
@@ -134,7 +136,8 @@ public function adminpendingtrip(){
                     "destination"=>$value1->dest_area,
                     "booking_date"=>$value1->booking_date,
                     "booking_time"=>$value1->booking_time,
-                    "status"=>$value1->status
+                    "status"=>$value1->status,
+                    "tickets"=>$value1->tickets
                 ];
                 array_push($tripsarray, $trip);
             }
