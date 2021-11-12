@@ -122,8 +122,8 @@ class AuthController extends Controller
             $rules=[
            
             'branchemail' => 'email|unique:users|',
-            'password' => 'required|confirmed|min:6'
-            
+            'password' => 'required|confirmed|min:6',
+            'state' => 'required'
               ];
 
          $validator = Validator::make($request->all(),$rules);
@@ -142,7 +142,8 @@ class AuthController extends Controller
                 'branchemail'=>$request->branchemail,
                 'password'=>Hash::make($request->password),
                 'branch_location'=>$request->location,
-                'userid'=> $var
+                'userid'=> $var,
+                'state'=>$request->state
           ]);
            admin_user::create([
                  'user_id'=> $createuser->id,

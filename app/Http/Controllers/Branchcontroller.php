@@ -126,4 +126,32 @@ class Branchcontroller extends Controller
         }
     
  }
+       
+    public function branchdetails(Request $request){
+          
+             $rules=[
+             
+              'branchid' => 'required',
+              
+              // 'password_confirmation' =>'required|min:6'
+           ];
+           $validator = Validator::make($request->all(),$rules);
+           if($validator->fails()){
+               return response()->json([$validator->errors()]);
+           }
+             else{
+              $branchid= $request->branchid;
+              $branchinfo= User::where('userid',$branchid)->first();  
+
+              return response()->json([
+                     "branchemail"=>$branchinfo->branchemail,
+                     "branch_location"=>$branchinfo->branch_location
+
+
+              ]);
+             }
+            
+
+
+    }
 }
