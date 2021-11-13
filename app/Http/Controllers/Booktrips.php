@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Trips;
 use App\Models\Achanprices;
+use App\Models\User;
 use Validator;
 use Carbon\Carbon;
 class Booktrips extends Controller
