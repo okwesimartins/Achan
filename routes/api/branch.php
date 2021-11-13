@@ -10,7 +10,7 @@ use App\Http\Controllers\Tripsforbranchcontroller;
 Route::post('booktrip',[Booktrips::class, 'booktrip']);
 
 Route::post('estimate',[Booktrips::class, 'getestimate']);
-
+Route::post('destinationarea',[Booktrips::class, 'destinationarea']);
 
 Route::post('airline_branch/{admin}',[Branchcontroller::class, 'airlinebranch']);
 Route::get('achan_location',[Branchcontroller::class, 'achanbranch']);

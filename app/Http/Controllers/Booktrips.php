@@ -219,4 +219,32 @@ class Booktrips extends Controller
 
 
     }
+    public function destinationarea(Request $request){
+           $rules = [
+               "branchid" =>'required'
+           ];
+           $validate= Validator::make($request->all(), $rules);
+           if($validate->fails()){
+            return response()->json([$validator->errors()]);
+        }else{
+            $branchid=$request->branchid;
+            $branchinfo= User::where('userid',$branchid)->first(); 
+
+            if($branchinfo){
+                $destination_area=array();
+                 $state=$branchinfo->state;
+
+                 $destarea= Achanprices::where('state',$state)->get();
+                 foreach($destarea as $value){
+
+                     $array1=[
+                        "area"=> $value->area
+                     ];
+                     array_push($destination_area, $array1);
+                 }
+
+                 return response()->json($destination_area);
+            }
+        }
+    }
 }

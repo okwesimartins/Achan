@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Admin;
 use App\Models\Trips;
 use Carbon\Carbon;
+use Validator;
 class Branchcontroller extends Controller
 {
     public function branches(){
