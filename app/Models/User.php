@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'branchname',
+        'state',
         'branchemail',
         'password',
         'branch_location',
@@ -31,6 +31,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
+        
         'password',
         'remember_token',
         'created_at','updated_at','email_verified_at','pivot'
