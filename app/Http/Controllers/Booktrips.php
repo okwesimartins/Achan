@@ -27,8 +27,7 @@ class Booktrips extends Controller
         $returndate = $request->returndate;
         $returntime = $request->returntime;
        
-        $state= $request->state;
-
+       
         $day= $carbondate->day;
         $year=$carbondate->year;
         $month= $carbondate->format('F');
@@ -41,9 +40,12 @@ class Booktrips extends Controller
         $airlineid = $request->airid;
         $bookingdate = $carbondate->toDateString();
         $bookingtime= $carbondate->format('g:i:s a');
-        
+        $user = User::where('userid',$airlineid)->first();
+        $state= $user->state;
           if($returndate && $returntime){
-               
+             
+
+
             $create_trip= Trips::create([
                 'trip_from'=>$from,
                 'trip_to'=>$to,
