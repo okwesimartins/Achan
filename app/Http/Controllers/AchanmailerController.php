@@ -32,7 +32,7 @@ class AchanmailerController extends Controller
                 'otp'=>$str
             ];
             
-           $sendmail= Mail::to( $airline_details['email'])->send(new SendMail($title,$airline_details,$otp));
+           $sendmail= Mail::to( $airline_details['email'])->send(new SendMail($title,$airline_details));
 
            if(empty($sendmail)){
                $admincheck = otp::where('email',$ademail)->first();
