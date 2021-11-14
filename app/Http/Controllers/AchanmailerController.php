@@ -12,10 +12,8 @@ class AchanmailerController extends Controller
 {
     public function sendEmail(Request $request){
         $email= $request->email;
-        $otpgen=mt_rand(100000,999999);
-        $str=(string)$otpgen;
-        var_dump($str);
-        die();
+      
+       
         $admin= Admin::where('email',$email)->first();
         
         if(empty($admin)){
@@ -29,9 +27,9 @@ class AchanmailerController extends Controller
         ];
             $otpgen= mt_rand(100000,999999);
             $str= (string)$otpgen;
-            dd($str);
+            
             $otp=[
-                'otp'=>$otpgen
+                'otp'=>$str
             ];
             
            $sendmail= Mail::to( $airline_details['email'])->send(new SendMail($title,$airline_details,$otp));
