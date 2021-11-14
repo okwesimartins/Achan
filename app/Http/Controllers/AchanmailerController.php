@@ -12,7 +12,9 @@ class AchanmailerController extends Controller
 {
     public function sendEmail(Request $request){
         $email= $request->email;
-        
+        $otpgen=mt_rand(100000,999999);
+        $str=(string)$otpgen;
+        dd($str);
         $admin= Admin::where('email',$email)->first();
         
         if(empty($admin)){
