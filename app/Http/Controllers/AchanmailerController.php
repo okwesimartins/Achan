@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Admin;
+
 use App\Models\otp;
 use App\Mail\SendMail;
 use Illuminate\Support\Facades\Mail;
@@ -15,7 +16,7 @@ class AchanmailerController extends Controller
         $admin= Admin::where('email',$email)->first();
         
         if(empty($admin)){
-           return response()->json(["status"=>"success","message"=>"Email does not exist"]);
+           return response()->json(["status"=>"failed","message"=>"Email does not exist only admin can change password"]);
         }else{
             $title= 'Change password';
             $ademail=$admin->email;
@@ -23,16 +24,19 @@ class AchanmailerController extends Controller
             'airline_name'=> $admin->name,
             'email'=> $ademail
         ];
-            $otp= mt_rand(1000, 9999);
+            $otpgen= mt_rand(1000, 9999);
+            $otp=[
+                'otp'=>$otpgen
+            ];
             
            $sendmail= Mail::to( $airline_details['email'])->send(new SendMail($title,$airline_details,$otp));
 
            if(empty($sendmail)){
                $admincheck = otp::where('email',$ademail)->first();
                if($admincheck){
-                   $otpupdate = otp::where('email',$ademail)->update(['otpcode'=>$otp]);
+                   $otpupdate = otp::where('email',$ademail)->update(['otpcode'=>$otpgen]);
                }else{
-                  $otpupdate = otp::where('email',$ademail)->create(['email'=>$ademail,'otpcode'=>$otp]);
+                  $otpupdate = otp::where('email',$ademail)->create(['email'=>$ademail,'otpcode'=>$otpgen]);
                }
                return response()->json([
                   "status"=>"success",
