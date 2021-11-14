@@ -28,6 +28,9 @@ Route::post('sendotp',[AchanmailerController::class, 'sendEmail']);
 Route::group( ['prefix' => 'admin','middleware' => ['auth:admin-api','scopes:admin'] ],function(){
     // authenticated admin routes here 
      Route::get('admin_graph',[Graphcontroller::class, 'graph']);
+
+     Route::post('branchdetails',[Branchcontroller::class, 'branchdetails']);
+
      Route::get('dashboardapi',[AuthController::class, 'dashboardapi']);
      Route::get('all_trips',[Tripscontroller::class, 'admintrips']);
 
