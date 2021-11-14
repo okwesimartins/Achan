@@ -259,8 +259,9 @@ class AuthController extends Controller
          if($validator->fails()){
              return response()->json([$validator->errors()]);
          }else{
-            $var = Str::random(32);
-            Admin::update([
+            $email= $request->email;
+           
+            Admin::where('email', $email)->update([
                
                  'password'=>Hash::make($request->password),
                 
