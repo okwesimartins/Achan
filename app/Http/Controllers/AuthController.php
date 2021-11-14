@@ -265,7 +265,7 @@ class AuthController extends Controller
                  'password'=>Hash::make($request->password),
                 
             ]);
-            return response()->json(["status"=>"success","message"=>"updated");
+            return response()->json(["status"=>"success","message"=>"updated"]);
          }
      }
 
