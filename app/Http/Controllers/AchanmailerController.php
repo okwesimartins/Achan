@@ -30,7 +30,9 @@ class AchanmailerController extends Controller
             $otpgen= mt_rand(100000,999999);
             $str= (string)$otpgen;
             
-            $otp="otp :" . $str;
+            $otp=[
+                'otp'=>$str,
+            ];
             
            $sendmail= Mail::to( $airline_details['email'])->send(new SendMail($title,$airline_details,$otp));
 
