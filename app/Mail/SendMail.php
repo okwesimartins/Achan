@@ -23,8 +23,8 @@ class SendMail extends Mailable
        
 
         $this->title=$title;
-        $this->$airline_details=$airline_details;
-        $this->$otp=$otp;
+        $this->airline_details=$airline_details;
+        $this->otp=$otp;
        
     }
 
