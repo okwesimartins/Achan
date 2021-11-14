@@ -25,6 +25,7 @@ class AchanmailerController extends Controller
             'email'=> $ademail
         ];
             $otpgen= mt_rand(1000, 9999);
+            dd($otpgen);
             $otp=[
                 'otp'=>$otpgen
             ];
