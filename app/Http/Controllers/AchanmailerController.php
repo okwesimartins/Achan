@@ -15,7 +15,7 @@ class AchanmailerController extends Controller
       
        
         $admin= Admin::where('email',$email)->first();
-        dd($admin->name);
+        
         
         if(empty($admin)){
            return response()->json(["status"=>"failed","message"=>"Email does not exist only admin can change password"]);
@@ -26,6 +26,7 @@ class AchanmailerController extends Controller
             'airline_name'=> $admin->name,
             'email'=> $ademail
         ];
+        dd($airline_details['airline_name']);
             $otpgen= mt_rand(100000,999999);
             $str= (string)$otpgen;
             
