@@ -299,7 +299,7 @@ class AuthController extends Controller
         $email= $request->email;
         $name= $request->name;
        
-        if(empty($email && $location)){
+        if(empty($email && $name)){
             return response()->json(["status"=>"failed","message"=>"all fields are required"]);
         }
           else{
