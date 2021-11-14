@@ -18,7 +18,9 @@ class AchanmailerController extends Controller
         
         
         if(empty($admin)){
-           
+           return response()->json([
+               "status"=>"failed"
+           ]);
         }else{
 
             $title= 'Change password';
