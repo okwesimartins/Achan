@@ -145,6 +145,7 @@ class Branchcontroller extends Controller
               $branchinfo= User::where('userid',$branchid)->first();  
 
               return response()->json([
+                     "userid"=>$branchid,
                      "branchemail"=>$branchinfo->branchemail,
                      "branch_location"=>$branchinfo->branch_location
 
@@ -155,4 +156,31 @@ class Branchcontroller extends Controller
 
 
     }
+
+
+    public function branchupdate(Request $request){
+          
+     $email= $request->email;
+     $location = $request->location;
+    
+     if(empty($email && $location)){
+         return response()->json(["status"=>"failed","message"=>"all fields are required"]);
+     }
+       else{
+        $branchid= $request->branchid;
+        $branchinfo= User::where('userid',$branchid)->update([
+              "branchemail"=>$email,
+              "branch_location"=>$location
+        ]);  
+
+        return response()->json([
+            
+           "status"=>"success"
+
+        ]);
+       }
+      
+
+
+}
 }
