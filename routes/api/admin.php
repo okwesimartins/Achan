@@ -16,6 +16,9 @@ Route::post('admin/login',[AuthController::class, 'adminLogin']);
 Route::post('admin/register',[AuthController::class, 'register']);
 
 Route::post('updatebranchpass',[AuthController::class, 'updatebranchpass']);
+
+
+Route::post('adminupdatebranch',[Branchcontroller::class, 'branchupdate']);
 Route::post('otpverify',[Otpverify::class, 'verifyotp']);
 
 Route::post('adminupdate',[AuthController::class, 'adminupdate']);
