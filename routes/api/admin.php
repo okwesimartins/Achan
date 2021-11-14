@@ -18,8 +18,10 @@ Route::post('admin/register',[AuthController::class, 'register']);
 Route::post('updatebranchpass',[AuthController::class, 'updatebranchpass']);
 Route::post('otpverify',[Otpverify::class, 'verifyotp']);
 
+Route::post('adminupdate',[AuthController::class, 'adminupdate']);
+
 Route::post('updateadminpass',[AuthController::class, 'updateadminpass']);
-Route::post('passwordupdate',[AchanmailerController::class, 'sendEmail']);
+Route::post('sendotp',[AchanmailerController::class, 'sendEmail']);
 Route::group( ['prefix' => 'admin','middleware' => ['auth:admin-api','scopes:admin'] ],function(){
     // authenticated admin routes here 
      Route::get('admin_graph',[Graphcontroller::class, 'graph']);
