@@ -20,6 +20,7 @@ class SendMail extends Mailable
      */
     public function __construct($airline_details,$otp,$title)
     {   
+        dd($otp);
         $this->$airline_details=$airline_details;
         $this->$otp=$otp['otp'];
         $this->title=$title;
