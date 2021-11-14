@@ -298,12 +298,20 @@ class AuthController extends Controller
           
         $email= $request->email;
         $name= $request->name;
-       
-        if(empty($email && $name)){
-            return response()->json(["status"=>"failed","message"=>"all fields are required"]);
-        }
+        $adminid= $request->adminid;
+        $rules=[
+            'name' => 'required',
+            'email' => 'email|unique:admins|',
+            'adminid'=> 'required'
+            
+            // 'password_confirmation' =>'required|min:6'
+         ];
+         $validator = Validator::make($request->all(),$rules);
+         if($validator->fails()){
+             return response()->json([$validator->errors()]);
+         }
           else{
-           $adminid= $request->adminid;
+          
            $branchinfo= Admin::where('adminid',$adminid)->update([
                  "name"=>$name,
                  "email"=> $email,
