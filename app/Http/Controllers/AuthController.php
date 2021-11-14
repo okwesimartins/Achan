@@ -284,8 +284,8 @@ class AuthController extends Controller
          if($validator->fails()){
              return response()->json([$validator->errors()]);
          }else{
-            $var = Str::random(32);
-           User::update([
+            $branchid= $request->branchid;
+           User::where('userid',$branchid)->update([
                
                  'password'=>Hash::make($request->password),
                 
