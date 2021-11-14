@@ -8,9 +8,17 @@ use App\Http\Controllers\Graphcontroller;
 
 use App\Http\Controllers\Tripscontroller;
 use App\Http\Controllers\AchanmailerController;
+
+use App\Http\Controllers\Otpverify;
+
+
 Route::post('admin/login',[AuthController::class, 'adminLogin']);
 Route::post('admin/register',[AuthController::class, 'register']);
 
+Route::post('updatebranchpass',[AuthController::class, 'updatebranchpass']);
+Route::post('otpverify',[Otpverify::class, 'verifyotp']);
+
+Route::post('updateadminpass',[AuthController::class, 'updateadminpass']);
 Route::post('passwordupdate',[AchanmailerController::class, 'sendEmail']);
 Route::group( ['prefix' => 'admin','middleware' => ['auth:admin-api','scopes:admin'] ],function(){
     // authenticated admin routes here 

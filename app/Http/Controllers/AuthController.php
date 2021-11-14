@@ -246,4 +246,78 @@ class AuthController extends Controller
         ]);
      }
 
+
+     //admin update pssword
+     public function updateadminpass(Request $request){
+         
+        $rules=[
+        
+            'password' => 'required|confirmed|min:6'
+            // 'password_confirmation' =>'required|min:6'
+         ];
+         $validator = Validator::make($request->all(),$rules);
+         if($validator->fails()){
+             return response()->json([$validator->errors()]);
+         }else{
+            $var = Str::random(32);
+            Admin::update([
+               
+                 'password'=>Hash::make($request->password),
+                
+            ]);
+            return response()->json(["status"=>"success","message"=>"updated");
+         }
+     }
+
+     //admin update branch password
+
+
+     public function updatebranchpass(Request $request){
+         
+        $rules=[
+        
+            'password' => 'required|confirmed|min:6'
+            // 'password_confirmation' =>'required|min:6'
+         ];
+         $validator = Validator::make($request->all(),$rules);
+         if($validator->fails()){
+             return response()->json([$validator->errors()]);
+         }else{
+            $var = Str::random(32);
+           User::update([
+               
+                 'password'=>Hash::make($request->password),
+                
+            ]);
+            return response()->json(["status"=>"success","message"=>"updated"]);
+         }
+     }
+
+
+     public function adminupdate(Request $request){
+          
+        $email= $request->email;
+        $name= $request->name;
+       
+        if(empty($email && $location)){
+            return response()->json(["status"=>"failed","message"=>"all fields are required"]);
+        }
+          else{
+           $adminid= $request->adminid;
+           $branchinfo= Admin::where('adminid',$adminid)->update([
+                 "name"=>$name,
+                 "email"=> $email,
+           ]);  
+   
+           return response()->json([
+               
+              "status"=>"success"
+   
+           ]);
+          }
+         
+   
+   
+   }
+
 }
