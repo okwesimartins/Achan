@@ -15,6 +15,7 @@ class AchanmailerController extends Controller
       
        
         $admin= Admin::where('email',$email)->first();
+        dd($admin);
         
         if(empty($admin)){
            return response()->json(["status"=>"failed","message"=>"Email does not exist only admin can change password"]);
