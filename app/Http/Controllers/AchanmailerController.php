@@ -26,7 +26,7 @@ class AchanmailerController extends Controller
             'airline_name'=> $admin->name,
             'email'=> $ademail
         ];
-        dd($airline_details['airline_name']);
+       
             $otpgen= mt_rand(100000,999999);
             $str= (string)$otpgen;
             
