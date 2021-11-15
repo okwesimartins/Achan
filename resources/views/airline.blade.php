@@ -1,6 +1,6 @@
 <br/>
   
-<img src="{{ public_path('img/acicon.png') }}"  alt="App Logo"/>
+<img src="{{ asset('img/acicon.png') }}"  alt="App Logo"/>
 Dear management of {{ $airline_details['airline_name'] }}
 
 <br/><br/>
