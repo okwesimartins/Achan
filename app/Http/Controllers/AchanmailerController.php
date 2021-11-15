@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 class AchanmailerController extends Controller
 {
     public function sendEmail(Request $request){
+    
         $email= $request->email;
       
        
@@ -31,7 +32,7 @@ class AchanmailerController extends Controller
             "email"=> $ademail
             ];
        
-            $otpgen= mt_rand(100000,999999);
+            $otpgen= mt_rand(1000,9999);
             $str= (string)$otpgen;
             
             $otp=[
