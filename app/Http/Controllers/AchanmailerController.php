@@ -61,4 +61,8 @@ class AchanmailerController extends Controller
         }
        
     }
+
+    public function sendTicketmail(Request $request){
+              
+    }
 }
