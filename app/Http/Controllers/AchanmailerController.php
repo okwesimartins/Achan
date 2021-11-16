@@ -7,6 +7,7 @@ use App\Models\Admin;
 
 use App\Models\otp;
 use App\Mail\SendMail;
+use App\Mail\Ticketmail;
 use Illuminate\Support\Facades\Mail;
 class AchanmailerController extends Controller
 {
@@ -63,6 +64,51 @@ class AchanmailerController extends Controller
     }
 
     public function sendTicketmail(Request $request){
+              $link1= $request->link1;
+              $link2= $request->link2;
+              $email=$request->email;
+              $name=$request->name;
+
+              if($link1 && $link2){
+                  $title = 'Ticket';
+                  $user_details= [
+                      'email'=>$email,
+                      'name'=>$name
+                  ];
+                  $ticket_link=[
+                      'link1'=>$link1,
+                      'link2'=>$link2
+                  ];
+                  $sendmail= Mail::to( $user_details['email'])->send(new Ticketmail($title,$user_details,$ticket_link));
+
+                  if(empty($sendmail)){
+                         return response()->json([
+                             "status"=>"success",
+                             "message"=>"Email Sent"
+                         ]);
+                  }
+
+              }else{
+                $title = 'Ticket';
+                $user_details= [
+                    'email'=>$email,
+                    'name'=>$name
+                ];
+                $ticket_link=[
+                    'link1'=>$link1,
+                    
+                ];
+                $sendmail= Mail::to( $user_details['email'])->send(new Ticketmail($title,$user_details,$ticket_link));
+
+                if(empty($sendmail)){
+                       return response()->json([
+                           "status"=>"success",
+                           "message"=>"Email Sent"
+                       ]);
+                }
+              }
+
+
               
     }
 }

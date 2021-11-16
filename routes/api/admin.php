@@ -25,6 +25,9 @@ Route::post('adminupdate',[AuthController::class, 'adminupdate']);
 
 Route::post('updateadminpass',[AuthController::class, 'updateadminpass']);
 Route::post('sendotp',[AchanmailerController::class, 'sendEmail']);
+//route that send the tickets to customer email
+Route::post('sendticket',[AchanmailerController::class, 'sendTicketmail']);
+//end
 Route::group( ['prefix' => 'admin','middleware' => ['auth:admin-api','scopes:admin'] ],function(){
     // authenticated admin routes here 
      Route::get('admin_graph',[Graphcontroller::class, 'graph']);
