@@ -1,6 +1,7 @@
 <br/>
   
-<img src="{{ asset('img/acicon.png') }}" style="width:100px;height:50px" alt="App Logo"/>
+<img src="{{ asset('img/acicon.png') }}" style="max-width:100px;max-height:90px" alt="App Logo"/>
+<br/>
 Dear management of {{ $airline_details['airline_name'] }}
 
 <br/><br/>
