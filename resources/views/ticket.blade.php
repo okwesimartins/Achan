@@ -1,4 +1,6 @@
-@if($ticket_link['link1'] && $ticket_link['link2'])
+@if(array_key_exists("link1", $ticket_link) && array_key_exists("link2", $ticket_link))
+
+
       <br/>
       <img src="{{ asset('img/acicon.png') }}" style="max-width:100px;max-height:90px" alt="App Logo"/>
        <br/>
