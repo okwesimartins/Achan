@@ -97,11 +97,11 @@ class Branchcontroller extends Controller
         $carbondate=Carbon::now();
         $day= $carbondate->day;
         $totalrev= Trips::where('airline_branch_id', $branchid)->where('day',$day)->get()->sum('total');
-        dd($totalrev);
-        if($totalrev){
+
+        if($totalrev > 0){
               $totalbooking= Trips::where('airline_branch_id', $branchid)->where('day',$day)->count();
               $total_in_int=(int)$totalrev;
-              $commission = $total_in_int * 0.1 ;
+              $commission = $total_in_int * 0.1;
       
               return response()->json([
                       "branchemail" => $branch->branchemail,
@@ -120,7 +120,7 @@ class Branchcontroller extends Controller
                       "branchemail" => $branch->branchemail,
                       "branch_location"=> $branch->branch_location,
                       "userid"=> $branch->userid,
-                      "total"=> $total_in_int,
+                      "total"=> "0",
                       "commission"=> "0",
                       "totalbooking"=> $totalbooking,
                       "totalpassengers"=>$totalbooking
