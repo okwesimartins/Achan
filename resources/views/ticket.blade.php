@@ -1,10 +1,10 @@
 @if(array_key_exists("link1", $ticket_link) && array_key_exists("link2", $ticket_link))
 
-
+       
       <br/>
       <img src="{{ asset('img/acicon.png') }}" style="max-width:100px;max-height:90px" alt="App Logo"/>
        <br/>
-       Hello {{ $user_details['name'] }} , thank you for choosing achantaxi, please click the buttons below to view your tickets 
+       Hello {{ $user_details['name'] }} , thank you for choosing achantaxi, please click the buttons below to view your tickets
        <br/><br/>
        Ticket for first trip:
         <br/><br/>
