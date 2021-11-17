@@ -129,7 +129,7 @@ class Branchcontroller extends Controller
     
  }
        
-    public function branchdetails(Request $request){
+    public function branchdetails(Request $request){ 
           
              $rules=[
              

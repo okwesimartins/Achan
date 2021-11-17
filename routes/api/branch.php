@@ -7,10 +7,16 @@ use App\Http\Controllers\Branchcontroller;
 use App\Http\Controllers\Booktrips;
 use App\Http\Controllers\Graphcontroller;
 use App\Http\Controllers\Tripsforbranchcontroller;
+use App\Http\Controllers\Drivercontroller;
+
+
 Route::post('booktrip',[Booktrips::class, 'booktrip']);
 
 Route::post('estimate',[Booktrips::class, 'getestimate']);
 Route::post('destinationarea',[Booktrips::class, 'destinationarea']);
+
+Route::get('drivers_info',[Drivercontroller::class, 'sellectdriver']);
+
 
 Route::post('airline_branch/{admin}',[Branchcontroller::class, 'airlinebranch']);
 Route::get('achan_location',[Branchcontroller::class, 'achanbranch']);
