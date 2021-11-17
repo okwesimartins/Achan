@@ -11,7 +11,7 @@ class Drivercontroller extends Controller
          $tripid=$request->id;
 
         $checkdriver = Trips::where('id',$tripid)->first();
-        dd($checkdriver);
+        
         if($checkdriver){
             
             if($checkdriver->driver_id){
@@ -32,6 +32,11 @@ class Drivercontroller extends Controller
                     "message"=>"No driver assigned yet"
                 ]);
             }
+        }else{
+            return response()->json([
+                "status"=>"failed",
+               
+            ]);
         }
     }
 }
