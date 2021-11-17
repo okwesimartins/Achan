@@ -11,9 +11,9 @@ class Drivercontroller extends Controller
          $tripid=$request->id;
 
         $checkdriver = Trips::where('id',$tripid)->first();
-
+        dd("he");
         if($checkdriver){
-            dd($checkdriver);
+            
             if($checkdriver->driver_id){
                 $driverid=$checkdriver->driver_id;
                 $driver= driver::where('driver_id',$driverid)->first();
