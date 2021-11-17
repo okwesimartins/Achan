@@ -31,7 +31,7 @@ class Drivercontroller extends Controller
             }else{
                 return response()->json([
                     "status"=>"failed",
-                    
+                    "message"=>"No driver assigned yet"
                 ]);
             }
         }else{
