@@ -17,9 +17,9 @@ class Drivercontroller extends Controller
             if($checkdriver->driver_id){
                
                 $driverid=$checkdriver->driver_id;
-                dd($driverid);
+               
                 $driver= driver::where('driver_id',$driverid)->first();
-                
+                dd($driver);
 
                 return response()->json([
                     "name"=> $driver->name,
