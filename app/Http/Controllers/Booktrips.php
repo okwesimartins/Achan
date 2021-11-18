@@ -231,6 +231,7 @@ class Booktrips extends Controller
 
 
     }
+    
     public function destinationarea(Request $request){
            $rules = [
                "branchid" =>'required'
