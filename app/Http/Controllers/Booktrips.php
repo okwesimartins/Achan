@@ -20,7 +20,7 @@ class Booktrips extends Controller
         $surname = $request->surname;
         $email = $request->email;
         $phonenumber = $request->phonenumber;
-        $from = $request->from;
+       
         $to = $request->to;
         $date = $request->date;
         $time = $request->time;
@@ -42,6 +42,8 @@ class Booktrips extends Controller
         $bookingtime= $carbondate->format('g:i:s a');
         $user = User::where('userid',$airlineid)->first();
         $state= $user->state;
+        $from = $user->branch_location;
+
           if($returndate && $returntime){
              
 
