@@ -180,17 +180,18 @@ class Booktrips extends Controller
 
     public function getestimate(Request $request){
            $destination = $request->destination;
-           $from = $request->from;
+           $fromid = $request->id;
            $destination_address= $request->dest_address;
            $date = $request->date;
             $time = $request->time;
-
+   
             $returndate = $request->returndate;
             $returntime = $request->returntime;
-
+            $user = User::where('userid',$fromid)->first();
+            $from = $user->branch_location;
             if($returndate && $returntime){
                 $price = Achanprices::select('area','price')->where('area',$destination )->first();
-                
+               
                 $ext_min=$price['price'];
                 $int_min=(int)$ext_min ;
                 $incrementby=500;
