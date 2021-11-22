@@ -12,6 +12,9 @@ use App\Http\Controllers\Drivercontroller;
 
 Route::post('booktrip',[Booktrips::class, 'booktrip']);
 
+
+Route::post('tripinfo',[Booktrips::class, 'tripinfo']);
+
 Route::post('estimate',[Booktrips::class, 'getestimate']);
 Route::post('destinationarea',[Booktrips::class, 'destinationarea']);
 
@@ -23,9 +26,9 @@ Route::get('achan_location',[Branchcontroller::class, 'achanbranch']);
 Route::post('branch/login',[AuthController::class, 'userLogin']);
 
 Route::group(['prefix' => 'branch','middleware' => ['auth:user-api','scopes:user']],function(){
+    
     Route::get('dashboard_api',[Branchcontroller::class, 'achandashboard']);  
     Route::get('branchcomgraph',[Graphcontroller::class, 'branchcomgraph']);  
-    
     Route::get('branchtripcomplete',[Tripsforbranchcontroller::class, 'branchtripscomplete']); 
     Route::get('branchtrippending',[Tripsforbranchcontroller::class, 'branchpending']); 
     Route::get('branchtripcancelled',[Tripsforbranchcontroller::class, 'branchtripscancelled']); 
