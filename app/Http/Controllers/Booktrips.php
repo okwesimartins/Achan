@@ -263,4 +263,22 @@ class Booktrips extends Controller
             }
         }
     }
+    
+
+    public function tripinfo(Request $request){
+            $tripid= $request->trip_id;
+            $tripinfo= Trips::where('id', $tripid)->first();
+
+            return response()->json([
+                 "trip_id"=> $tripinfo->id,
+                 "phone_number"=>$tripinfo->passenger_phone,
+                 "ticket_num"=>$tripinfo->tickets,
+                 "date"=>$tripinfo->date,
+                 "email"=>$tripinfo->email,
+                 'passenger_name'=>$tripinfo->passenger_name,
+                 "time"=>$tripinfo->time,
+                 "from"=>$tripinfo->trip_from,
+                 "destination"=>$tripinfo->trip_to
+             ]);
+    }
 }
