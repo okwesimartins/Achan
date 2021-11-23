@@ -121,7 +121,6 @@ class AuthController extends Controller
     
      public function createbranch(Request $request){
             $rules=[
-           
             'branchemail' => 'email|unique:users|',
             'password' => 'required|confirmed|min:6',
             'location' => 'required'
