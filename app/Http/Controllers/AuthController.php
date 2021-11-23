@@ -7,7 +7,7 @@ use App\Models\Admin;
 use App\Models\User;
 use App\Models\Trips;
 use App\Models\admin_user;
-use App\Models\Achanprices;
+use App\Models\achan_branch;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;   
 use Illuminate\Support\Str;                
@@ -137,7 +137,7 @@ class AuthController extends Controller
             $var = Str::random(32);
             $id= auth()->guard('admin-api')->user()->id;
             $location= $request->location;
-            $state= Achanprices::where('area',$location)->first();
+            $state= achan_branch::where('airport',$location)->first();
            $createuser= User::create([
                
                 'branchemail'=>$request->branchemail,
