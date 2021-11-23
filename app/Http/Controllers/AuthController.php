@@ -122,8 +122,8 @@ class AuthController extends Controller
             $rules=[
            
             'branchemail' => 'email|unique:users|',
-            'password' => 'required|confirmed|min:6',
-            'state' => 'required'
+            'password' => 'required|confirmed|min:6'
+            
               ];
 
          $validator = Validator::make($request->all(),$rules);
