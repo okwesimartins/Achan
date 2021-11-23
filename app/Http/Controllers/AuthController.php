@@ -7,6 +7,7 @@ use App\Models\Admin;
 use App\Models\User;
 use App\Models\Trips;
 use App\Models\admin_user;
+use App\Models\Achanprices;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;   
 use Illuminate\Support\Str;                
@@ -122,8 +123,8 @@ class AuthController extends Controller
             $rules=[
            
             'branchemail' => 'email|unique:users|',
-            'password' => 'required|confirmed|min:6'
-            
+            'password' => 'required|confirmed|min:6',
+            'location' => 'required'
               ];
 
          $validator = Validator::make($request->all(),$rules);
@@ -135,15 +136,15 @@ class AuthController extends Controller
              
             $var = Str::random(32);
             $id= auth()->guard('admin-api')->user()->id;
-           
-            
+            $location= $request->location;
+            $state= Achanprices::where('area',$location)->first();
            $createuser= User::create([
                
                 'branchemail'=>$request->branchemail,
                 'password'=>Hash::make($request->password),
-                'branch_location'=>$request->location,
+                'branch_location'=>$location,
                 'userid'=> $var,
-                'state'=>$request->state
+                'state'=>$state['state']
           ]);
            admin_user::create([
                  'user_id'=> $createuser->id,
