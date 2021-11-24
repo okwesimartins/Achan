@@ -7,6 +7,7 @@ use App\Models\Trips;
 use App\Models\Achanprices;
 use App\Models\User;
 use App\Models\achan_branch;
+use App\Models\driver;
 use Validator;
 use Carbon\Carbon;
 class Booktrips extends Controller
@@ -43,12 +44,16 @@ class Booktrips extends Controller
         $bookingtime= $carbondate->format('g:i:s a');
         $user = User::where('userid',$airlineid)->first();
         $state= $user->state;
-       
+        
+        
+
         $from = $user->branch_location;
         $achanbranchloca = achan_branch::where('airport',$from)->first();
         $phone_num= $achanbranchloca->phone_num;
         $whatapp= $achanbranchloca->wha_num;
-
+        
+        $driver= driver::inRandomOrder()->first();
+        $driver_id= $driver->driver_id;
           if($returndate && $returntime){
              
 
@@ -61,12 +66,13 @@ class Booktrips extends Controller
                 'email'=>$email,
                 'surname'=>$surname,
                 'passenger_phone'=>$phonenumber,
+                'driver_id'=>$driver_id,
                 'trip_id'=> $tripid,
                 'date'=>$date,
                 'time'=>$time,
                 'booking_date'=>$bookingdate,
                 'booking_time'=>$bookingtime,
-                
+
                 'status'=>"pending",
                 'day'=>$day,
                 'month'=>$month,
@@ -173,7 +179,6 @@ class Booktrips extends Controller
             "date"=>$create_trip->date,
             "email"=>$create_trip->email,
             'passenger_name'=>$create_trip->passenger_name,
-           
             "time"=>$create_trip->time,
             "from"=>$create_trip->trip_from,
             "destination"=>$create_trip->trip_to,
@@ -278,7 +283,6 @@ class Booktrips extends Controller
         }
     }
     
-
     public function tripinfo(Request $request){
             $tripid= $request->trip_id;
             $tripinfo= Trips::where('id', $tripid)->first();
@@ -304,7 +308,6 @@ class Booktrips extends Controller
                  "date"=>$tripinfo->date,
                  "email"=>$tripinfo->email,
                  'passenger_name'=>$tripinfo->passenger_name,
-                 
                  "time"=>$tripinfo->time,
                  "from"=>$tripinfo->trip_from,
                  "destination"=>$tripinfo->trip_to,
