@@ -137,8 +137,8 @@ class AuthController extends Controller
             $id= auth()->guard('admin-api')->user()->id;
             $location= $request->location;
             $state= achan_branch::where('airport',$location)->first();
-           $createuser= User::create([
-               
+            
+            $createuser= User::create([
                 'branchemail'=>$request->branchemail,
                 'password'=>Hash::make($request->password),
                 'branch_location'=>$location,

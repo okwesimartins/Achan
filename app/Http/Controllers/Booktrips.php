@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Trips;
 use App\Models\Achanprices;
 use App\Models\User;
+use App\Models\achan_branch;
 use Validator;
 use Carbon\Carbon;
 class Booktrips extends Controller
@@ -42,7 +43,11 @@ class Booktrips extends Controller
         $bookingtime= $carbondate->format('g:i:s a');
         $user = User::where('userid',$airlineid)->first();
         $state= $user->state;
+       
         $from = $user->branch_location;
+        $achanbranchloca = achan_branch::where('airport',$from)->first();
+        $phone_num= $achanbranchloca->phone_num;
+        $whatapp= $achanbranchloca->wha_num;
 
           if($returndate && $returntime){
              
@@ -110,7 +115,9 @@ class Booktrips extends Controller
              "date"=>$create_trip->date,
              "time"=>$create_trip->time,
              "from"=>$create_trip->trip_from,
-             "destination"=>$create_trip->trip_to
+             "destination"=>$create_trip->trip_to,
+             "phone_num"=>$phone_num,
+             "whatapp"=>$whatapp
              ],
              "second_ticket"=>[
                 "trip_id"=> $create_trip2->id,
@@ -121,7 +128,9 @@ class Booktrips extends Controller
                 "date"=>$create_trip2->date,
                 "time"=>$create_trip2->time,
                 "from"=>$create_trip2->trip_from,
-                "destination"=>$create_trip2->trip_to
+                "destination"=>$create_trip2->trip_to,
+                "phone_num"=>$phone_num,
+                "whatapp"=>$whatapp
              ]
             
          ]);
@@ -164,7 +173,8 @@ class Booktrips extends Controller
             'passenger_name'=>$create_trip->passenger_name,
             "time"=>$create_trip->time,
             "from"=>$create_trip->trip_from,
-            "destination"=>$create_trip->trip_to
+            "destination"=>$create_trip->trip_to,
+            "phone_num"=>$phone_num
            ]
            
             
@@ -268,6 +278,20 @@ class Booktrips extends Controller
     public function tripinfo(Request $request){
             $tripid= $request->trip_id;
             $tripinfo= Trips::where('id', $tripid)->first();
+             $triparea=$tripinfo->trip_from;
+             $achanbranch = achan_branch::where('airport',$triparea)->first();
+             $phone_num= $achanbranch->phone_num;
+             $whatapp= $achanbranch->wha_num;
+             
+             $tripto=$tripinfo->trip_to;
+
+             $price = Achanprices::select('area','price')->where('area',$tripto)->first();
+               
+             $ext_min=$price['price'];
+             $int_min=(int)$ext_min ;
+             $incrementby=500;
+             $ext_max= $int_min + $incrementby;
+             $ext_max2=(string)$ext_max;
 
             return response()->json([
                  "trip_id"=> $tripinfo->id,
@@ -278,7 +302,11 @@ class Booktrips extends Controller
                  'passenger_name'=>$tripinfo->passenger_name,
                  "time"=>$tripinfo->time,
                  "from"=>$tripinfo->trip_from,
-                 "destination"=>$tripinfo->trip_to
+                 "destination"=>$tripinfo->trip_to,
+                 "phone_num"=>$phone_num,
+                 "whatapp"=>$whatapp,
+                 "ext_max"=>$ext_max,
+                 "ext_max2"=>$ext_max2
              ]);
     }
 }
