@@ -174,7 +174,8 @@ class Booktrips extends Controller
             "time"=>$create_trip->time,
             "from"=>$create_trip->trip_from,
             "destination"=>$create_trip->trip_to,
-            "phone_num"=>$phone_num
+            "phone_num"=>$phone_num,
+            "whatapp"=>$whatapp
            ]
            
             
