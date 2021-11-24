@@ -126,7 +126,7 @@ class Booktrips extends Controller
                 "ticket_num"=>$create_trip2->tickets,
                 "email"=>$create_trip2->email,
                 'passenger_name'=>$create_trip2->passenger_name,
-                'surname'=>$create_trip->surname,
+                'surname'=>$create_trip2->surname,
                 "date"=>$create_trip2->date,
                 "time"=>$create_trip2->time,
                 "from"=>$create_trip2->trip_from,
