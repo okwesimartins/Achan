@@ -305,8 +305,8 @@ class Booktrips extends Controller
                  "destination"=>$tripinfo->trip_to,
                  "phone_num"=>$phone_num,
                  "whatapp"=>$whatapp,
-                 "ext_max"=>$ext_max,
-                 "ext_max2"=>$ext_max2
+                 "ext_main"=>$ext_max,
+                 "ext_max"=>$ext_max2
              ]);
     }
 }
