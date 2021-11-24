@@ -112,7 +112,7 @@ class Booktrips extends Controller
              "ticket_num"=>$create_trip->tickets,
              "email"=>$create_trip->email,
              'passenger_name'=>$create_trip->passenger_name,
-             'surname'=>$create_trip->surname,
+             
              "date"=>$create_trip->date,
              "time"=>$create_trip->time,
              "from"=>$create_trip->trip_from,
@@ -126,7 +126,7 @@ class Booktrips extends Controller
                 "ticket_num"=>$create_trip2->tickets,
                 "email"=>$create_trip2->email,
                 'passenger_name'=>$create_trip2->passenger_name,
-                'surname'=>$create_trip2->surname,
+               
                 "date"=>$create_trip2->date,
                 "time"=>$create_trip2->time,
                 "from"=>$create_trip2->trip_from,
@@ -173,7 +173,7 @@ class Booktrips extends Controller
             "date"=>$create_trip->date,
             "email"=>$create_trip->email,
             'passenger_name'=>$create_trip->passenger_name,
-            'surname'=>$create_trip->surname,
+           
             "time"=>$create_trip->time,
             "from"=>$create_trip->trip_from,
             "destination"=>$create_trip->trip_to,
@@ -304,7 +304,7 @@ class Booktrips extends Controller
                  "date"=>$tripinfo->date,
                  "email"=>$tripinfo->email,
                  'passenger_name'=>$tripinfo->passenger_name,
-                 'surname'=>$tripinfo->surname,
+                 
                  "time"=>$tripinfo->time,
                  "from"=>$tripinfo->trip_from,
                  "destination"=>$tripinfo->trip_to,
