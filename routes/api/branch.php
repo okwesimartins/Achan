@@ -25,6 +25,9 @@ Route::post('airline_branch/{admin}',[Branchcontroller::class, 'airlinebranch'])
 Route::get('achan_location',[Branchcontroller::class, 'achanbranch']);
 Route::post('branch/login',[AuthController::class, 'userLogin']);
 
+Route::get('google/locations',[AuthController::class, 'getgooglelocation']);
+
+
 Route::group(['prefix' => 'branch','middleware' => ['auth:user-api','scopes:user']],function(){
     
     Route::get('dashboard_api',[Branchcontroller::class, 'achandashboard']);  
