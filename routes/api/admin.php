@@ -44,7 +44,8 @@ Route::group( ['prefix' => 'admin','middleware' => ['auth:admin-api','scopes:adm
      Route::get('admincancelled',[Tripscontroller::class, 'cancelledtrips']);
 
      Route::post('create_branches',[AuthController::class, 'createbranch']);
-
+     
+     Route::post('logout',[AuthController::class, 'logout']);
      Route::get('admingraphcom',[Graphcontroller::class, 'admincomgraph']);  
      Route::get('branches',[Branchcontroller::class, 'branches']);
  });

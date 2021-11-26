@@ -33,6 +33,6 @@ Route::group(['prefix' => 'branch','middleware' => ['auth:user-api','scopes:user
     Route::get('branchtrippending',[Tripsforbranchcontroller::class, 'branchpending']); 
     Route::get('branchtripcancelled',[Tripsforbranchcontroller::class, 'branchtripscancelled']); 
     Route::get('branchalltrips',[Tripsforbranchcontroller::class, 'allbranchtrips']);
-
+    Route::post('branch/logout',[AuthController::class, 'logout']);
     Route::get('branchgraph',[Graphcontroller::class, 'branchgraph']);    
 });
