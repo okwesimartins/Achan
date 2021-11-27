@@ -330,9 +330,10 @@ class AuthController extends Controller
 
    public function  getgooglelocation(Request $request){
              
-             $area= $request->area;
+             $area1= $request->area;
 
-             
+             $area = str_replace(' ', '%20', $area1);
+
              $curl = curl_init();
 
 curl_setopt_array($curl, array(
