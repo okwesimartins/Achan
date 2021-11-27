@@ -355,7 +355,7 @@ curl_close($curl);
 $res =json_decode($response);
 $array = array();
 
-    foreach($res['predictions'] as $value){
+    foreach($res->predictions as $value){
            $locationarea= $value->description;
            array_push($array, $locationarea);
     }
