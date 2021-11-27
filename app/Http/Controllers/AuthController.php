@@ -332,7 +332,7 @@ class AuthController extends Controller
              
              $area= $request->area;
 
-
+              dd($area);
              $curl = curl_init();
 
 curl_setopt_array($curl, array(
