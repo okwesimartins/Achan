@@ -350,7 +350,17 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 
 curl_close($curl);
-echo $response;
+
+
+$res =json_decode($response);
+$array = array();
+
+    foreach($res['predictions'] as $value){
+           $locationarea= $value->description;
+           array_push($array, $locationarea);
+    }
+
+    return response()->json($array);
    }
 
 
