@@ -75,11 +75,12 @@ class Branchcontroller extends Controller
            }
        
     }
+    
     public function achanbranch(){
 
         $branch= achan_branch::get();
         return response()->json($branch);
- }
+   }
 
  public function airlinebranch(Admin $admin){
       

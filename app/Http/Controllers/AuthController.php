@@ -190,15 +190,15 @@ class AuthController extends Controller
               
 
             }else{
-                $totalbooking = Trips::where('airline_branch_id',$userid)->count();
+                // $totalbooking = Trips::where('airline_branch_id',$userid)->count();
                 $array2 = [
                     "userid"=>$value->userid,
                     "location"=>$value->branch_location,
                     "branchemail"=>$value->branchemail,
                     "totalrev"=>"0",
                     "commission"=>"0",
-                    "totalbooking"=> $totalbooking ,
-                    "totalpassenger"=> $totalbooking 
+                    "totalbooking"=> "0",
+                    "totalpassenger"=> "0"
 
              ];
              
