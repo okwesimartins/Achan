@@ -12,6 +12,9 @@ use App\Http\Controllers\Drivercontroller;
 
 Route::post('booktrip',[Booktrips::class, 'booktrip']);
 
+Route::post('firstform',[Booktrips::class, 'firstbookingform']);
+
+
 
 Route::post('tripinfo',[Booktrips::class, 'tripinfo']);
 
