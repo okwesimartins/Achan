@@ -22,7 +22,7 @@ class Booktrips extends Controller
         $surname = $request->surname;
         $email = $request->email;
         $phonenumber = $request->phonenumber;
-       
+        
         $from = $request->from;
         $date = $request->date;
         $time = $request->time;
@@ -43,7 +43,7 @@ class Booktrips extends Controller
         $state= $user->state;
         
         
-
+        $destarea = $request->destination_area;
         $to = $user->branch_location;
         $achanbranchloca = achan_branch::where('airport',$from)->first();
         $phone_num= $achanbranchloca->phone_num;
@@ -104,7 +104,7 @@ class Booktrips extends Controller
     }
 
 
-    
+
     public function booktrip(Request $request){
         $random = mt_rand(100000, 999999);
         $ticketrad= mt_rand(100, 999);
