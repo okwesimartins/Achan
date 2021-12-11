@@ -146,7 +146,8 @@ class Booktrips extends Controller
         $whatapp= $achanbranchloca->wha_num;
 
 
-
+        $driver= driver::inRandomOrder()->first();
+        $driver_id= $driver->driver_id;
         
 
         $create_trip= Trips::create([
