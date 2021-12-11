@@ -120,8 +120,7 @@ class Booktrips extends Controller
         $to = $request->to;
         $date = $request->date;
         $time = $request->time;
-        $returndate = $request->returndate;
-        $returntime = $request->returntime;
+       
        
        
         $day= $carbondate->day;
