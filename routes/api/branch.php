@@ -16,7 +16,7 @@ Route::post('booktrip',[Booktrips::class, 'booktrip']);
 
 Route::post('firstform',[Booktrips::class, 'firstbookingform']);
 
-Route::post('secondbookingform',[Booktrips::class, 'secondtbookingform']);
+Route::post('secondbookingform',[Booktrips::class, 'secondbookingform']);
 
 Route::post('tripinfo',[Booktrips::class, 'tripinfo']);
 
