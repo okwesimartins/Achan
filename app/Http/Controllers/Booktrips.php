@@ -325,30 +325,30 @@ class Booktrips extends Controller
 
      return response()->json([
         "first_ticket"=>[   
-        "trip_id"=> $create_trip->id,
-         "phone_number"=>$create_trip->passenger_phone,
-         "ticket_num"=>$create_trip->tickets,
-         "email"=>$create_trip->email,
-         'passenger_name'=>$create_trip->passenger_name,
+        "trip_id"=> $create_trip2->id,
+         "phone_number"=>$create_trip2->passenger_phone,
+         "ticket_num"=>$create_trip2->tickets,
+         "email"=>$create_trip2->email,
+         'passenger_name'=>$create_trip2->passenger_name,
          
-         "date"=>$create_trip->date,
-         "time"=>$create_trip->time,
-         "from"=>$create_trip->trip_from,
-         "destination"=>$create_trip->trip_to,
+         "date"=>$create_trip2->date,
+         "time"=>$create_trip2->time,
+         "from"=>$create_trip2->trip_from,
+         "destination"=>$create_trip2->trip_to,
          "phone_num"=>$phone_num,
          "whatapp"=>$whatapp
          ],
          "second_ticket"=>[
-            "trip_id"=> $create_trip2->id,
-            "phone_number"=>$create_trip2->passenger_phone,
-            "ticket_num"=>$create_trip2->tickets,
-            "email"=>$create_trip2->email,
-            'passenger_name'=>$create_trip2->passenger_name,
+            "trip_id"=> $create_trip->id,
+            "phone_number"=>$create_trip->passenger_phone,
+            "ticket_num"=>$create_trip->tickets,
+            "email"=>$create_trip->email,
+            'passenger_name'=>$create_trip->passenger_name,
            
-            "date"=>$create_trip2->date,
-            "time"=>$create_trip2->time,
-            "from"=>$create_trip2->trip_from,
-            "destination"=>$create_trip2->trip_to,
+            "date"=>$create_trip->date,
+            "time"=>$create_trip->time,
+            "from"=>$create_trip->trip_from,
+            "destination"=>$create_trip->trip_to,
             "phone_num"=>$phone_num2,
             "whatapp"=>$whatapp2
          ]
