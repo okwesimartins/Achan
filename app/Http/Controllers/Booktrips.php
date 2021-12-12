@@ -247,7 +247,7 @@ class Booktrips extends Controller
         
         $pickupaddress=$request->pickupaddress;
         $secondfrom = $request->pickup_area;
-        $depatureairport_id=$request->id;
+        $depatureairport_id=$request->depature_airid;
         $depatureairport = User::where('userid',$depatureairport_id)->first();
         $airport_state= $depatureairport->state;
         $secondto =  $depatureairport->branch_location;
