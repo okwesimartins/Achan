@@ -254,7 +254,7 @@ class Booktrips extends Controller
         $secondrandom = mt_rand(100000, 999999);
         $secondtripid = "ach".$secondrandom;
 
-        $achanbranch2 = achan_branch::where('airport',$secondfrom)->first();
+        $achanbranch2 = achan_branch::where('airport', $secondto)->first();
         $phone_num2= $achanbranch2->phone_num;
         $whatapp2=  $achanbranch2->wha_num;
        //first booking
