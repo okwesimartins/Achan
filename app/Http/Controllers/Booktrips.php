@@ -261,39 +261,6 @@ class Booktrips extends Controller
         $whatapp2=  $achanbranch2->wha_num;
        //first booking
    
-       $create_trip= Trips::create([
-        'trip_from'=>$from,
-        'trip_to'=>$to,
-        'trip_type'=>"Local",
-        'passenger_name'=>$firstname,
-        'email'=>$email,
-        'surname'=>$surname,
-        'passenger_phone'=>$phonenumber,
-        'driver_id'=>$driver_id,
-        'trip_id'=> $tripid,
-        'date'=>$date,
-        'time'=>$time,
-        'booking_date'=>$bookingdate,
-        'booking_time'=>$bookingtime,
-
-        'status'=>"pending",
-        'day'=>$day,
-        'month'=>$month,
-        'year'=>$year,
-        'dest_area'=>$destarea,
-        'state'=>$state,
-        'est_min'=>$estmin,
-        'est_max'=>$estmax,
-        'pay_status'=>"pending",
-        'tickets'=>$ticket,
-        'airline_branch_id'=>$airlineid
- ]);
-
-
-
-
-        //second booking
-       
         $create_trip2= Trips::create([
             'trip_from'=>$secondfrom,
             'trip_to'=>$secondto,
@@ -323,6 +290,36 @@ class Booktrips extends Controller
             'pickup_address'=>  $pickupaddress
      ]);
 
+
+
+ //second booking
+     $create_trip= Trips::create([
+        'trip_from'=>$from,
+        'trip_to'=>$to,
+        'trip_type'=>"Local",
+        'passenger_name'=>$firstname,
+        'email'=>$email,
+        'surname'=>$surname,
+        'passenger_phone'=>$phonenumber,
+        'driver_id'=>$driver_id,
+        'trip_id'=> $tripid,
+        'date'=>$date,
+        'time'=>$time,
+        'booking_date'=>$bookingdate,
+        'booking_time'=>$bookingtime,
+
+        'status'=>"pending",
+        'day'=>$day,
+        'month'=>$month,
+        'year'=>$year,
+        'dest_area'=>$destarea,
+        'state'=>$state,
+        'est_min'=>$estmin,
+        'est_max'=>$estmax,
+        'pay_status'=>"pending",
+        'tickets'=>$ticket,
+        'airline_branch_id'=>$airlineid
+ ]);
      return response()->json([
         "first_ticket"=>[   
         "trip_id"=> $create_trip2->id,
