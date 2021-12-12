@@ -18,6 +18,9 @@ Route::post('firstform',[Booktrips::class, 'firstbookingform']);
 
 Route::post('secondbookingform',[Booktrips::class, 'secondbookingform']);
 
+Route::post('thirdform',[Booktrips::class, 'thirdbookingform']);
+
+
 Route::post('tripinfo',[Booktrips::class, 'tripinfo']);
 
 Route::post('estimate',[Booktrips::class, 'getestimate']);

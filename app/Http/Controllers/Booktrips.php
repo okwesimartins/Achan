@@ -318,7 +318,7 @@ class Booktrips extends Controller
             'pay_status'=>"pending",
             'tickets'=>$ticket,
             'airline_branch_id'=>$airlineid,
-            'pickupaddress'=>  $pickupaddress
+            'pickup_address'=>  $pickupaddress
      ]);
 
      return response()->json([
