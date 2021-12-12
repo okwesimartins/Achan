@@ -253,6 +253,8 @@ class Booktrips extends Controller
         $secondto =  $depatureairport->branch_location;
         $secondrandom = mt_rand(100000, 999999);
         $secondtripid = "ach".$secondrandom;
+        $estmin2=$request->estmin2;
+        $estmax2= $request->estmax2;
 
         $achanbranch2 = achan_branch::where('airport', $secondto)->first();
         $phone_num2= $achanbranch2->phone_num;
@@ -313,8 +315,8 @@ class Booktrips extends Controller
             'year'=>$year,
             
             'state'=>$airport_state,
-            'est_min'=>$estmin,
-            'est_max'=>$estmax,
+            'est_min'=>$estmin2,
+            'est_max'=>$estmax2,
             'pay_status'=>"pending",
             'tickets'=>$ticket,
             'airline_branch_id'=>$airlineid,
