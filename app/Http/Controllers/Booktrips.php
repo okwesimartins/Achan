@@ -608,8 +608,230 @@ $create_trip4= Trips::create([
     }
   
 
+//for the first form
+  public function firstgetestimate(Request $request){
+        
+         $pickuparea= $request->pickup_area;
+         $airlineid= $request->airid;
+         $date= $request->date;
+         $time = $request->time;
+         $user = User::where('userid',$airlineid)->first();
+         $to = $user->branch_location;
+
+         $price = Achanprices::select('area','price')->where('area',$pickuparea )->first();
+               
+         $ext_min=$price['price'];
+         $int_min=(int)$ext_min ;
+         $incrementby=500;
+         $ext_max= $int_min + $incrementby;
+         $ext_min2=(string)$ext_max;
+         return response()->json([
+                    "from"=> $pickuparea,
+                    "to"=>  $to,
+                    "date"=>$date,
+                    "time"=>$time,
+                    "est_min"=>$ext_min,
+                    "est_max"=>$ext_max2
+         ]);
+  }
+//for the second form
+  public function secondgetestimate(Request $request){
+         
+
+    $destination = $request->destination_area;
+
+    $fromid = $request->airid;
+    $destination_address= $request->dest_address;
+    $date = $request->date;
+     $time = $request->time;
+
+     $returndate = $request->returndate;
+     $returntime = $request->returntime;
+     $user = User::where('userid',$fromid)->first();
+     $from = $user->branch_location;
+    
+
+
+     $price = Achanprices::select('area','price')->where('area',$destination )->first();
+               
+     $ext_min=$price['price'];
+     $int_min=(int)$ext_min ;
+     $incrementby=500;
+     $ext_max= $int_min + $incrementby;
+     $ext_max2=(string)$ext_max;
+     return response()->json([
+                "from"=> $from,
+                "to"=>  $destination,
+                "date"=>$date,
+                "time"=>$time,
+                "est_min"=>$ext_min,
+                "est_max"=>$ext_max2
+            ]);
+
+  }
+
+
+
+  public function thirdgetestimate(Request $request){
+    $pickuparea = $request->pickup_area;
+
+    $arrivalid = $request->arrival_airid;
+
+    $departureid = $request->departure_airid;
+
+    $destination_aarea= $request->destination_area;
+    $date = $request->date;
+     $time = $request->time;
+
+     $returndate = $request->returndate;
+     $returntime = $request->returntime;
+     $arrival = User::where('userid',$arrivalid )->first();
+
+     $departure = User::where('userid',$departureid )->first();
+     $from = $arrival->branch_location;
+     $to =  $departure->branch_location;
+
+
+     $price = Achanprices::select('area','price')->where('area',$destination_aarea )->first();
+
+     $ext_min=$price['price'];
+     $int_min=(int)$ext_min ;
+     $incrementby=500;
+     $ext_max= $int_min + $incrementby;
+     $ext_main=(string)$ext_max;
+
+
+     $price2 = Achanprices::select('area','price')->where('area', $pickuparea )->first();
+     $ext_min2=$price2['price'];
+     $int_min2=(int)$ext_min2 ;
+     $incrementby2=500;
+     $ext_max2= $int_min2 + $incrementby2;
+     $ext_min2=(string)$ext_max2;
+
+     return response()->json([
+        "first_cost"=>[
+            "from"=>  $pickuparea,
+            "to"=>  $to,
+            "date"=>$date,
+            "time"=>$time,
+            "est_min"=>$ext_min2,
+            "est_max"=>$ext_max2
+        ],
+        "second_cost"=>[
+         "from"=> $from,
+         "to"=>  $destination_aarea,
+         "date"=>$date,
+         "time"=>$time,
+         "est_min"=>$ext_min,
+         "est_max"=>$ext_max
+     ]
+ ]);
+               
+  }
+
+
+
+
+  public function fourthgetestimate(Request $request){
+    $pickuparea = $request->pickup_area;
+
+    $arrivalid = $request->arrival_airid;
+
+    $departureid = $request->departure_airid;
+
+    $destination_aarea= $request->destination_area;
+    $date = $request->date;
+     $time = $request->time;
+
+     $returndate = $request->returndate;
+     $returntime = $request->returntime;
+     $arrival = User::where('userid',$arrivalid )->first();
+
+     $departure = User::where('userid',$departureid )->first();
+     $from = $arrival->branch_location;
+     $to =  $departure->branch_location;
+
+
+     $price = Achanprices::select('area','price')->where('area',$destination_aarea )->first();
+
+     $ext_min=$price['price'];
+     $int_min=(int)$ext_min ;
+     $incrementby=500;
+     $ext_max= $int_min + $incrementby;
+     $ext_main=(string)$ext_max;
+
+
+     $price2 = Achanprices::select('area','price')->where('area', $pickuparea )->first();
+     $ext_min2=$price2['price'];
+     $int_min2=(int)$ext_min2 ;
+     $incrementby2=500;
+     $ext_max2= $int_min2 + $incrementby2;
+     $ext_min2=(string)$ext_max2;
+
+     return response()->json([
+        "first_cost"=>[
+            "from"=>  $pickuparea,
+            "to"=>  $to,
+            "date"=>$date,
+            "time"=>$time,
+            "est_min"=>$ext_min2,
+            "est_max"=>$ext_max2
+        ],
+        "second_cost"=>[
+         "from"=> $from,
+         "to"=>  $destination_aarea,
+         "date"=>$date,
+         "time"=>$time,
+         "est_min"=>$ext_min,
+         "est_max"=>$ext_max
+        ],
+        "third_cost"=>[
+            "from"=>  $destination_aarea,
+            "to"=>  $from,
+            "date"=>$date,
+            "time"=>$time,
+            "est_min"=>$ext_min,
+            "est_max"=>$ext_max
+        ],
+        "fourth_cost"=>[
+         "from"=>  $to,
+         "to"=> $pickuparea,
+         "date"=>$date,
+         "time"=>$time,
+         "est_min"=>$ext_min2,
+         "est_max"=>$ext_max2
+     ]
+ ]);
+               
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function getestimate(Request $request){
+           
            $destination = $request->destination;
+           
+           $depature_airid = $request->departure_airid;
+           $arrival_airid = $request->arrival_airid;
+
+
            $fromid = $request->id;
            $destination_address= $request->dest_address;
            $date = $request->date;
