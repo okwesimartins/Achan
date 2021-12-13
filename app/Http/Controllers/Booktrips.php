@@ -212,7 +212,7 @@ class Booktrips extends Controller
         $surname = $request->surname;
         $email = $request->email;
         $phonenumber = $request->phonenumber;
-       
+        
         $to = $request->to;
         $date = $request->date;
         $time = $request->time;
@@ -234,7 +234,7 @@ class Booktrips extends Controller
         $user = User::where('userid',$airlineid)->first();
         $state= $user->state;
         
-        
+        $estimated_arivaltime= $request->estimated_arivaltime;
 
         $from = $user->branch_location;
         $achanbranchloca = achan_branch::where('airport',$from)->first();
@@ -304,7 +304,7 @@ class Booktrips extends Controller
         'driver_id'=>$driver_id,
         'trip_id'=> $tripid,
         'date'=>$date,
-        'time'=>$time,
+        'time'=>$estimated_arivaltime,
         'booking_date'=>$bookingdate,
         'booking_time'=>$bookingtime,
 
@@ -348,6 +348,259 @@ class Booktrips extends Controller
             "destination"=>$create_trip->trip_to,
             "phone_num"=>$phone_num2,
             "whatapp"=>$whatapp2
+         ]
+        
+     ]);
+
+    }
+
+
+
+
+
+    public function fourthbooking(Request $request){
+            
+        $random = mt_rand(100000, 999999);
+        $ticketrad= mt_rand(1000, 9999);
+        $carbondate=Carbon::now();
+
+
+        $firstname=$request->firstname;
+        $surname = $request->surname;
+        $email = $request->email;
+        $phonenumber = $request->phonenumber;
+       
+        $to = $request->to;
+        $date = $request->date;
+        $time = $request->time;
+        
+        $returndate = $request->returndate;
+        $returntime = $request->returntime;
+        
+        
+        $estimated_arivaltime= $request->estimated_arivaltime;
+        $estimated_returnarivaltime = $request->estimated_returnarivaltime;
+
+        $day= $carbondate->day;
+        $year=$carbondate->year;
+        $month= $carbondate->format('F');
+
+        $destarea = $request->dest_address;
+        $estmin = $request->estmin;
+        $estmax = $request->estmax;
+        $tripid = "ach".$random ;
+        $ticket = "#".$ticketrad;
+        $airlineid = $request->airid;
+        $bookingdate = $carbondate->toDateString();
+        $bookingtime= $carbondate->format('g:i:s a');
+        $user = User::where('userid',$airlineid)->first();
+        $state= $user->state;
+        
+        
+
+        $from = $user->branch_location;
+        $achanbranchloca = achan_branch::where('airport',$from)->first();
+        $phone_num= $achanbranchloca->phone_num;
+        $whatapp= $achanbranchloca->wha_num;
+
+
+        $driver= driver::inRandomOrder()->first();
+        $driver_id= $driver->driver_id;
+        
+        $pickupaddress=$request->pickupaddress;
+        $secondfrom = $request->pickup_area;
+        $depatureairport_id=$request->depature_airid;
+        $depatureairport = User::where('userid',$depatureairport_id)->first();
+        $airport_state= $depatureairport->state;
+        $secondto =  $depatureairport->branch_location;
+        $secondrandom = mt_rand(100000, 999999);
+        $secondtripid = "ach".$secondrandom;
+        $estmin2=$request->estmin2;
+        $estmax2= $request->estmax2;
+
+        $achanbranch2 = achan_branch::where('airport', $secondto)->first();
+        $phone_num2= $achanbranch2->phone_num;
+        $whatapp2=  $achanbranch2->wha_num;
+       //first booking
+   
+        $create_trip2= Trips::create([
+            'trip_from'=>$secondfrom,
+            'trip_to'=>$secondto,
+            'trip_type'=>"Local",
+            'passenger_name'=>$firstname,
+            'email'=>$email,
+            'surname'=>$surname,
+            'passenger_phone'=>$phonenumber,
+            'driver_id'=>$driver_id,
+            'trip_id'=> $secondtripid,
+            'date'=>$date,
+            'time'=>$time,
+            'booking_date'=>$bookingdate,
+            'booking_time'=>$bookingtime,
+
+            'status'=>"pending",
+            'day'=>$day,
+            'month'=>$month,
+            'year'=>$year,
+            
+            'state'=>$airport_state,
+            'est_min'=>$estmin2,
+            'est_max'=>$estmax2,
+            'pay_status'=>"pending",
+            'tickets'=>$ticket,
+            'airline_branch_id'=>$secondtripid,
+            'pickup_address'=>  $pickupaddress
+     ]);
+
+
+
+ //second booking
+     $create_trip= Trips::create([
+        'trip_from'=>$from,
+        'trip_to'=>$to,
+        'trip_type'=>"Local",
+        'passenger_name'=>$firstname,
+        'email'=>$email,
+        'surname'=>$surname,
+        'passenger_phone'=>$phonenumber,
+        'driver_id'=>$driver_id,
+        'trip_id'=> $tripid,
+        'date'=>$date,
+        'time'=>$estimated_arivaltime,
+        'booking_date'=>$bookingdate,
+        'booking_time'=>$bookingtime,
+
+        'status'=>"pending",
+        'day'=>$day,
+        'month'=>$month,
+        'year'=>$year,
+        'dest_area'=>$destarea,
+        'state'=>$state,
+        'est_min'=>$estmin,
+        'est_max'=>$estmax,
+        'pay_status'=>"pending",
+        'tickets'=>$ticket,
+        'airline_branch_id'=>$airlineid
+ ]);
+
+ //third booking
+
+ $create_trip3= Trips::create([
+    'trip_from'=>$to,
+    'trip_to'=>$from,
+    'trip_type'=>"Local",
+    'passenger_name'=>$firstname,
+    'email'=>$email,
+    'surname'=>$surname,
+    'passenger_phone'=>$phonenumber,
+    'driver_id'=>$driver_id,
+    'trip_id'=> $secondtripid,
+    'date'=>$returndate,
+    'time'=>$returntime,
+    'booking_date'=>$bookingdate,
+    'booking_time'=>$bookingtime,
+
+    'status'=>"pending",
+    'day'=>$day,
+    'month'=>$month,
+    'year'=>$year,
+    
+    'state'=>$airport_state,
+    'est_min'=>$estmin,
+    'est_max'=>$estmax,
+    'pay_status'=>"pending",
+    'tickets'=>$ticket,
+    'airline_branch_id'=>$airlineid,
+    'pickup_address'=>  $destarea
+]);
+
+
+//forth booking
+
+$create_trip4= Trips::create([
+    'trip_from'=>$secondto,
+    'trip_to'=>$secondfrom,
+    'trip_type'=>"Local",
+    'passenger_name'=>$firstname,
+    'email'=>$email,
+    'surname'=>$surname,
+    'passenger_phone'=>$phonenumber,
+    'driver_id'=>$driver_id,
+    'trip_id'=> $tripid,
+    'date'=>$returndate,
+    'time'=>$estimated_returnarivaltime,
+    'booking_date'=>$bookingdate,
+    'booking_time'=>$bookingtime,
+    'status'=>"pending",
+    'day'=>$day,
+    'month'=>$month,
+    'year'=>$year,
+    'dest_area'=>$destarea,
+    'state'=>$state,
+    'est_min'=>$estmin2,
+    'est_max'=>$estmax2,
+    'pay_status'=>"pending",
+    'tickets'=>$ticket,
+    'airline_branch_id'=>$secondtripid
+]);
+
+
+     return response()->json([
+        "first_ticket"=>[   
+        "trip_id"=> $create_trip2->id,
+         "phone_number"=>$create_trip2->passenger_phone,
+         "ticket_num"=>$create_trip2->tickets,
+         "email"=>$create_trip2->email,
+         'passenger_name'=>$create_trip2->passenger_name,
+         
+         "date"=>$create_trip2->date,
+         "time"=>$create_trip2->time,
+         "from"=>$create_trip2->trip_from,
+         "destination"=>$create_trip2->trip_to,
+         "phone_num"=>$phone_num,
+         "whatapp"=>$whatapp
+         ],
+         "second_ticket"=>[
+            "trip_id"=> $create_trip->id,
+            "phone_number"=>$create_trip->passenger_phone,
+            "ticket_num"=>$create_trip->tickets,
+            "email"=>$create_trip->email,
+            'passenger_name'=>$create_trip->passenger_name,
+           
+            "date"=>$create_trip->date,
+            "time"=>$create_trip->time,
+            "from"=>$create_trip->trip_from,
+            "destination"=>$create_trip->trip_to,
+            "phone_num"=>$phone_num2,
+            "whatapp"=>$whatapp2
+         ],
+         "third_ticket"=>[
+            "trip_id"=> $create_trip3->id,
+            "phone_number"=>$create_trip3->passenger_phone,
+            "ticket_num"=>$create_trip3->tickets,
+            "email"=>$create_trip3->email,
+            'passenger_name'=>$create_trip3->passenger_name,
+           
+            "date"=>$create_trip3->date,
+            "time"=>$create_trip3->time,
+            "from"=>$create_trip3->trip_from,
+            "destination"=>$create_trip3->trip_to,
+            "phone_num"=>$phone_num2,
+            "whatapp"=>$whatapp2
+         ],
+         "forth_ticket"=>[
+            "trip_id"=> $create_trip4->id,
+            "phone_number"=>$create_trip4->passenger_phone,
+            "ticket_num"=>$create_trip4->tickets,
+            "email"=>$create_trip4->email,
+            'passenger_name'=>$create_trip4->passenger_name,
+            
+            "date"=>$create_trip4->date,
+            "time"=>$create_trip4->time,
+            "from"=>$create_trip4->trip_from,
+            "destination"=>$create_trip4->trip_to,
+            "phone_num"=>$phone_num,
+            "whatapp"=>$whatapp
          ]
         
      ]);
