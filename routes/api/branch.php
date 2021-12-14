@@ -23,7 +23,13 @@ Route::post('fourth', [Booktrips::class, 'fourthbooking']);
 
 Route::post('tripinfo',[Booktrips::class, 'tripinfo']);
 
-Route::post('estimate',[Booktrips::class, 'getestimate']);
+Route::post('firstestimate',[Booktrips::class, 'firstgetestimate']);
+Route::post('secondestimate',[Booktrips::class, 'secondgetestimate']);
+Route::post('thirdestimate',[Booktrips::class, 'thirdgetestimate']);
+Route::post('fourthestimate',[Booktrips::class, 'fourthgetestimate']);
+
+
+
 Route::post('destinationarea',[Booktrips::class, 'destinationarea']);
 
 Route::post('drivers_info',[Drivercontroller::class, 'sellectdriver']);

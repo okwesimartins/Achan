@@ -634,6 +634,7 @@ $create_trip4= Trips::create([
                     "est_max"=>$ext_max2
          ]);
   }
+
 //for the second form
   public function secondgetestimate(Request $request){
          
