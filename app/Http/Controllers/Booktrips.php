@@ -624,13 +624,13 @@ $create_trip4= Trips::create([
          $int_min=(int)$ext_min ;
          $incrementby=500;
          $ext_max= $int_min + $incrementby;
-         $ext_min2=(string)$ext_max;
+         
          return response()->json([
                     "from"=> $pickuparea,
                     "to"=>  $to,
                     "date"=>$date,
                     "time"=>$time,
-                    "est_min"=>$ext_min2,
+                    "est_min"=>$ext_min,
                     "est_max"=>$ext_max
          ]);
   }
@@ -659,14 +659,14 @@ $create_trip4= Trips::create([
      $int_min=(int)$ext_min ;
      $incrementby=500;
      $ext_max= $int_min + $incrementby;
-     $ext_max2=(string)$ext_max;
+    
      return response()->json([
                 "from"=> $from,
                 "to"=>  $destination,
                 "date"=>$date,
                 "time"=>$time,
                 "est_min"=>$ext_min,
-                "est_max"=>$ext_max2
+                "est_max"=>$ext_max
             ]);
 
   }
@@ -699,7 +699,7 @@ $create_trip4= Trips::create([
      $int_min=(int)$ext_min ;
      $incrementby=500;
      $ext_max= $int_min + $incrementby;
-     $ext_main=(string)$ext_max;
+   
 
 
      $price2 = Achanprices::select('area','price')->where('area', $pickuparea )->first();
@@ -707,7 +707,7 @@ $create_trip4= Trips::create([
      $int_min2=(int)$ext_min2 ;
      $incrementby2=500;
      $ext_max2= $int_min2 + $incrementby2;
-     $ext_min2=(string)$ext_max2;
+   
 
      return response()->json([
         "first_cost"=>[
@@ -759,7 +759,7 @@ $create_trip4= Trips::create([
      $int_min=(int)$ext_min ;
      $incrementby=500;
      $ext_max= $int_min + $incrementby;
-     $ext_main=(string)$ext_max;
+    
 
 
      $price2 = Achanprices::select('area','price')->where('area', $pickuparea )->first();
@@ -767,7 +767,7 @@ $create_trip4= Trips::create([
      $int_min2=(int)$ext_min2 ;
      $incrementby2=500;
      $ext_max2= $int_min2 + $incrementby2;
-     $ext_min2=(string)$ext_max2;
+   
 
      return response()->json([
         "first_cost"=>[
