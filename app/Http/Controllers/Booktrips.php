@@ -630,8 +630,8 @@ $create_trip4= Trips::create([
                     "to"=>  $to,
                     "date"=>$date,
                     "time"=>$time,
-                    "est_min"=>$ext_min,
-                    "est_max"=>$ext_max2
+                    "est_min"=>$ext_min2,
+                    "est_max"=>$ext_max
          ]);
   }
 
