@@ -12,14 +12,16 @@
        <button  style="outline:none;width:100px;color:white"> <a href="{{ $ticket_link['link1'] }}"> View ticket</a></button>
        <br/>
        Ticket for second trip:
+            <br/>
             <img src="{{ asset('img/acicon.png') }}" style="max-width:100px;max-height:90px" alt="App Logo"/>
        <br/>
        Hello {{ $user_details['name'] }}  thank you for choosing achantaxi, please click the buttons below to view your tickets
         <br/><br/>
-       <button  style="outline: none;width:100px;color:white"> <a href="{{ $ticket_link['link2'] }}">View ticket</a> </button>
+       <button  style="outline: none;width:100px;height:50px;"> <a href="{{ $ticket_link['link2'] }}" style="color:white">View ticket</a> </button>
 
        <br/>
        Ticket for third trip:
+            <br/>
             <img src="{{ asset('img/acicon.png') }}" style="max-width:100px;max-height:90px" alt="App Logo"/>
        <br/>
        Hello {{ $user_details['name'] }}  thank you for choosing achantaxi, please click the buttons below to view your tickets
@@ -27,6 +29,7 @@
        <button  style="outline:none;width:100px;color:white"> <a href="{{ $ticket_link['link3'] }}"> View ticket</a></button>
        <br/>
        Ticket for forth trip:
+            <br/>
             <img src="{{ asset('img/acicon.png') }}" style="max-width:100px;max-height:90px" alt="App Logo"/>
        <br/>
        Hello {{ $user_details['name'] }} , thank you for choosing achantaxi, please click the buttons below to view your tickets
