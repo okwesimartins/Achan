@@ -66,10 +66,13 @@ class AchanmailerController extends Controller
     public function sendTicketmail(Request $request){
               $link1= $request->link1;
               $link2= $request->link2;
+
+              $link3= $request->link3;
+              $link4= $request->link4;
               $email=$request->email;
               $name=$request->name;
 
-              if($link1 && $link2){
+              if($link1 && $link2 && $link3 && $link4){
                   $title = 'Ticket';
                   $user_details= [
                       'email'=>$email,
@@ -77,7 +80,9 @@ class AchanmailerController extends Controller
                   ];
                   $ticket_link=[
                       'link1'=>$link1,
-                      'link2'=>$link2
+                      'link2'=>$link2,
+                      'link3'=>$link3,
+                      'link4'=>$link4
                   ];
                   $sendmail= Mail::to( $user_details['email'])->send(new Ticketmail($title,$user_details,$ticket_link));
 
@@ -96,6 +101,8 @@ class AchanmailerController extends Controller
                 ];
                 $ticket_link=[
                     'link1'=>$link1,
+                    'link2'=>$link2,
+                    
                     
                 ];
                 $sendmail= Mail::to( $user_details['email'])->send(new Ticketmail($title,$user_details,$ticket_link));

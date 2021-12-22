@@ -222,7 +222,7 @@ class Booktrips extends Controller
         $day= $carbondate->day;
         $year=$carbondate->year;
         $month= $carbondate->format('F');
-
+        
         $destarea = $request->dest_address;
         $estmin = $request->estmin;
         $estmax = $request->estmax;
@@ -646,8 +646,7 @@ $create_trip4= Trips::create([
     $date = $request->date;
      $time = $request->time;
 
-     $returndate = $request->returndate;
-     $returntime = $request->returntime;
+    
      $user = User::where('userid',$fromid)->first();
      $from = $user->branch_location;
     
@@ -684,8 +683,7 @@ $create_trip4= Trips::create([
     $date = $request->date;
      $time = $request->time;
 
-     $returndate = $request->returndate;
-     $returntime = $request->returntime;
+   
      $arrival = User::where('userid',$arrivalid )->first();
 
      $departure = User::where('userid',$departureid )->first();
