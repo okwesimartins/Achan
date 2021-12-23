@@ -920,7 +920,11 @@ $create_trip4= Trips::create([
             $tripinfo= Trips::where('id', $tripid)->first();
              $triparea=$tripinfo->trip_from;
              $achanbranch = achan_branch::where('airport',$triparea)->first();
-             $phone_num= $achanbranch->phone_num;
+             $phone_num = "";
+             if($achanbranch){
+                $phone_num= $achanbranch->phone_num;
+             }
+             
              $whatapp= $achanbranch->wha_num;
              
              $tripto=$tripinfo->trip_to;
