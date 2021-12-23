@@ -935,6 +935,7 @@ $create_trip4= Trips::create([
              
                 $achanbranch1 = achan_branch::where('airport', $triparea1)->first();
                 dd($achanbranch1);
+                
                 $phone_number= $achanbranch1->phone_num;
                 
                 $whatapp= $achanbranch1->wha_num;
