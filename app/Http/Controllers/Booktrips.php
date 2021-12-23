@@ -926,15 +926,28 @@ $create_trip4= Trips::create([
                 $phone_number= $achanbranch->phone_num;
 
                 $whatapp= $achanbranch->wha_num;
+             }else{
+                $tripinfo= Trips::where('id', $tripid)->first();
+                $triparea=$tripinfo->trip_to;
+                $achanbranch = achan_branch::where('airport',$triparea)->first();
+                $phone_number= $achanbranch->phone_num;
+                
+                $whatapp= $achanbranch->wha_num;
              }
              
             
              
              $tripto=$tripinfo->trip_to;
-
+             $ext_min = "";
              $price = Achanprices::select('area','price')->where('area',$tripto)->first();
-               
-             $ext_min=$price['price'];
+               if($price){
+                $ext_min=$price['price'];
+               }else{
+                $tripto2=$tripinfo->trip_from;
+                $price2 = Achanprices::select('area','price')->where('area',$tripto2)->first();
+                $ext_min=$price2['price'];
+               }
+            
              $int_min=(int)$ext_min ;
              $incrementby=500;
              $ext_max= $int_min + $incrementby;
