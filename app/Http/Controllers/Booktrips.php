@@ -939,9 +939,9 @@ $create_trip4= Trips::create([
              
              $tripto=$tripinfo->trip_to;
              $ext_min = "";
-             $price = Achanprices::select('area','price')->where('area',$tripto)->first();
-               if($price){
-                $ext_min=$price['price'];
+             $price1 = Achanprices::select('area','price')->where('area',$tripto)->first();
+               if($price1){
+                $ext_min=$price1['price'];
                }else{
                 $tripto2=$tripinfo->trip_from;
                 $price2 = Achanprices::select('area','price')->where('area',$tripto2)->first();
