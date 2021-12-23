@@ -7,6 +7,6 @@ Dear management of {{ $airline_details['airline_name'] }}
 <br/><br/>
 ------------ Otp -----------
 <br/>
-This is your otp code : {{ $otp['otp'] }}
+here is your otp code : {{ $otp['otp'] }}
 <br/>
 <!-- {{ asset('img/acicon.png') }} -->
