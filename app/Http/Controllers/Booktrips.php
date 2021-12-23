@@ -929,15 +929,15 @@ $create_trip4= Trips::create([
                 $whatapp= $achanbranch->wha_num;
              }else{
              
-                $tripinfo2= Trips::where('id', $tripid)->first();
+                $tripinfo1= Trips::where('id', $tripid)->first();
 
-                $triparea2=$tripinfo2->trip_to;
+                $triparea1=$tripinfo1->trip_to;
 
-                $achanbranch2 = achan_branch::where('airport',$triparea2)->first();
+                $achanbranch1 = achan_branch::where('airport',$triparea1)->first();
+
+                $phone_number= $achanbranch1->phone_num;
                 
-                $phone_number= $achanbranch2->phone_num;
-                
-                $whatapp= $achanbranch2->wha_num;
+                $whatapp= $achanbranch1->wha_num;
 
 
              }
