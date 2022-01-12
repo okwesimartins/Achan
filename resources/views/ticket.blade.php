@@ -109,7 +109,7 @@
 																<table border="0" cellpadding="0" cellspacing="0" align="center">
 																	<tbody>
 																		<tr>
-																			<td style="background-color: 00A859; padding: 12px 35px; border-radius: 50px;" align="center" class="ctaButton"> <a href="#" style="color:#fff;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;font-style:normal;letter-spacing:1px;line-height:20px;text-transform:uppercase;text-decoration:none;display:block" target="_blank" class="text">View ticket</a>
+																			<td style="background-color:#00A859; padding: 12px 35px; border-radius: 50px;" align="center" class="ctaButton"> <a href="#" style="color:#fff;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;font-style:normal;letter-spacing:1px;line-height:20px;text-transform:uppercase;text-decoration:none;display:block" target="_blank" class="text">View ticket</a>
 																			</td>
 																		</tr>
 																	</tbody>
