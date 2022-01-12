@@ -43,7 +43,7 @@
        
 
 <!-- © 2018 Shift Technologies. All rights reserved. -->
-<table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:fixed;background-color:#00A859" id="bodyTable">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:fixed;background-color:" id="bodyTable">
 	<tbody>
 		<tr>
 			<td style="padding-right:10px;padding-left:10px;" align="center" valign="top" id="bodyCell">
@@ -66,10 +66,10 @@
 					<tbody>
 						<tr>
 							<td align="center" valign="top">
-								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="tableCard" style="background-color:#fff;border-color:#00A859;border-style:solid;border-width:0 1px 1px 1px;">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="tableCard" style="background-color:#fff;border-color:#e5e5e5;border-style:solid;border-width:0 1px 1px 1px;">
 									<tbody>
 										<tr>
-											<td style="background-color:#00d2f4;font-size:1px;line-height:3px" class="topBorder" height="3">&nbsp;</td>
+											<td style="background-color:#00A859;font-size:1px;line-height:3px" class="topBorder" height="3">&nbsp;</td>
 										</tr>
 										<tr>
 											
