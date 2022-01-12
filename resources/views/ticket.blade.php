@@ -82,7 +82,7 @@
 										<tr>
 											<td style="padding-bottom: 20px;" align="center" valign="top" class="imgHero">
 												<a href="#" style="text-decoration:none" target="_blank">
-													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/hero-img/blue/heroGradient/user-account.png" style="width:100%;max-width:600px;height:auto;display:block;color: #f9f9f9;" width="600">
+													<img alt="" border="0" src="{{ asset('img/achanlogo.png') }}" style="width:100%;max-width:600px;height:auto;display:block;color: #f9f9f9;" width="600">
 												</a>
 											</td>
 										</tr>
