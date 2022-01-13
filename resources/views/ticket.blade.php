@@ -173,7 +173,7 @@
 											<td align="center" valign="middle" style="padding-bottom: 40px;" class="emailRegards">
 												<!-- Image and Link // -->
 												<a href="#" target="_blank" style="text-decoration:none;">
-													<img mc:edit="signature" src="http://email.aumfusion.com/vespro/img//other/signature.png" alt="" width="150" border="0" style="width:100%;
+													<img mc:edit="signature" src="{{ asset('img/achantaxi.png') }}" alt="" width="150" border="0" style="width:100%;
     max-width:150px; height:auto; display:block;">
 												</a>
 											</td>
@@ -198,23 +198,23 @@
 								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="footer">
 									<tbody>
 										<tr>
-											<td style="padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px" align="center" valign="top" class="socialLinks">
+											<!--<td style="padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px" align="center" valign="top" class="socialLinks">
 												<a href="#facebook-link" style="display:inline-block" target="_blank" class="facebook">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/facebook.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
 												</a>
 												<a href="#twitter-link" style="display: inline-block;" target="_blank" class="twitter">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/twitter.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
 												</a>
-												<!--<a href="#pintrest-link" style="display: inline-block;" target="_blank" class="pintrest">
+												<a href="#pintrest-link" style="display: inline-block;" target="_blank" class="pintrest">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/pintrest.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
-												</a>-->
-												<a href="#instagram-link" style="display: inline-block;" target="_blank" class="instagram">
-													<img alt="" border="0" src="" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
 												</a>
-												<!--<a href="#linkdin-link" style="display: inline-block;" target="_blank" class="linkdin">
+												<a href="#instagram-link" style="display: inline-block;" target="_blank" class="instagram">
+													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/instagram.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
+												</a>
+												<a href="#linkdin-link" style="display: inline-block;" target="_blank" class="linkdin">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/linkdin.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
-												</a>-->
-											</td>
+												</a>
+											</td>-->
 										</tr>
 										<tr>
 											<!--<td style="padding: 10px 10px 5px;" align="center" valign="top" class="brandInfo">
@@ -235,9 +235,9 @@
 												<a href="#Play-Store-Link" style="display: inline-block;" target="_blank" class="play-store">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/app/play-store.png" style="height:auto;margin:5px;width:100%;max-width:120px" width="120">
 												</a>
-												<a href="#App-Store-Link" style="display: inline-block;" target="_blank" class="app-store">
+												<!--<a href="#App-Store-Link" style="display: inline-block;" target="_blank" class="app-store">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/app/app-store.png" style="height:auto;margin:5px;width:100%;max-width:120px" width="120">
-												</a>
+												</a>-->
 											</td>
 										</tr>
 										<tr>
@@ -381,7 +381,7 @@
 											<td align="center" valign="middle" style="padding-bottom: 40px;" class="emailRegards">
 												<!-- Image and Link // -->
 												<a href="#" target="_blank" style="text-decoration:none;">
-													<img mc:edit="signature" src="http://email.aumfusion.com/vespro/img//other/signature.png" alt="" width="150" border="0" style="width:100%;
+													<img mc:edit="signature" src="{{ asset('img/achantaxi.png') }}" alt="" width="150" border="0" style="width:100%;
                                                                   max-width:150px; height:auto; display:block;">
 												</a>
 											</td>
@@ -406,23 +406,23 @@
 								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="footer">
 									<tbody>
 										<tr>
-											<td style="padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px" align="center" valign="top" class="socialLinks">
+											<!--<td style="padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px" align="center" valign="top" class="socialLinks">
 												<a href="#facebook-link" style="display:inline-block" target="_blank" class="facebook">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/facebook.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
 												</a>
 												<a href="#twitter-link" style="display: inline-block;" target="_blank" class="twitter">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/twitter.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
 												</a>
-												<!--<a href="#pintrest-link" style="display: inline-block;" target="_blank" class="pintrest">
+												<a href="#pintrest-link" style="display: inline-block;" target="_blank" class="pintrest">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/pintrest.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
-												</a>-->
+												
 												<a href="#instagram-link" style="display: inline-block;" target="_blank" class="instagram">
-													<img alt="" border="0" src="" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
+													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/instagram.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
 												</a>
-												<!--<a href="#linkdin-link" style="display: inline-block;" target="_blank" class="linkdin">
+												<a href="#linkdin-link" style="display: inline-block;" target="_blank" class="linkdin">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/linkdin.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
-												</a>-->
-											</td>
+												</a>
+											</td>-->
 										</tr>
 										<tr>
 											<!--<td style="padding: 10px 10px 5px;" align="center" valign="top" class="brandInfo">
@@ -443,9 +443,9 @@
 												<a href="#Play-Store-Link" style="display: inline-block;" target="_blank" class="play-store">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/app/play-store.png" style="height:auto;margin:5px;width:100%;max-width:120px" width="120">
 												</a>
-												<a href="#App-Store-Link" style="display: inline-block;" target="_blank" class="app-store">
+												<!--<a href="#App-Store-Link" style="display: inline-block;" target="_blank" class="app-store">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/app/app-store.png" style="height:auto;margin:5px;width:100%;max-width:120px" width="120">
-												</a>
+												</a>-->
 											</td>
 										</tr>
 										<tr>
@@ -560,7 +560,7 @@
 											<td align="center" valign="middle" style="padding-bottom: 40px;" class="emailRegards">
 												<!-- Image and Link // -->
 												<a href="#" target="_blank" style="text-decoration:none;">
-													<img mc:edit="signature" src="http://email.aumfusion.com/vespro/img//other/signature.png" alt="" width="150" border="0" style="width:100%;
+													<img mc:edit="signature" src="{{ asset('img/achantaxi.png') }}" alt="" width="150" border="0" style="width:100%;
                                                                   max-width:150px; height:auto; display:block;">
 												</a>
 											</td>
@@ -585,23 +585,23 @@
 								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="footer">
 									<tbody>
 										<tr>
-											<td style="padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px" align="center" valign="top" class="socialLinks">
+											<!--<td style="padding-top:10px;padding-bottom:10px;padding-left:10px;padding-right:10px" align="center" valign="top" class="socialLinks">
 												<a href="#facebook-link" style="display:inline-block" target="_blank" class="facebook">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/facebook.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
 												</a>
 												<a href="#twitter-link" style="display: inline-block;" target="_blank" class="twitter">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/twitter.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
 												</a>
-												<!--<a href="#pintrest-link" style="display: inline-block;" target="_blank" class="pintrest">
+												<a href="#pintrest-link" style="display: inline-block;" target="_blank" class="pintrest">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/pintrest.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
-												</a>-->
-												<a href="#instagram-link" style="display: inline-block;" target="_blank" class="instagram">
-													<img alt="" border="0" src="" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
 												</a>
-												<!--<a href="#linkdin-link" style="display: inline-block;" target="_blank" class="linkdin">
+												<a href="#instagram-link" style="display: inline-block;" target="_blank" class="instagram">
+													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/instagram.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
+												</a>
+												<a href="#linkdin-link" style="display: inline-block;" target="_blank" class="linkdin">
 													<img alt="" border="0" src="http://email.aumfusion.com/vespro/img/social/light/linkdin.png" style="height:auto;width:100%;max-width:40px;margin-left:2px;margin-right:2px" width="40">
-												</a>-->
-											</td>
+												</a>
+											</td>-->
 										</tr>
 										<tr>
 											<!--<td style="padding: 10px 10px 5px;" align="center" valign="top" class="brandInfo">
