@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 
+use App\Models\Trips;
+
 use App\Models\otp;
 use App\Mail\SendMail;
 use App\Mail\Ticketmail;
@@ -78,12 +80,45 @@ class AchanmailerController extends Controller
                       'email'=>$email,
                       'name'=>$name
                   ];
+                  $url1= parse_url($link1);
+                  parse_str($url1['query'],$params);
+                  $link_id1=$params['trip_id'];
+                  $tripid1=Trips::Where('trip_id',$link_id1)->first();
+                  
+                  $url2= parse_url($link2);
+                  parse_str($url2['query'],$params2);
+                  $link_id2=$params2['trip_id'];
+                  $tripid2=Trips::Where('trip_id',$link_id2)->first();
+                  
+                  $url3= parse_url($link3);
+                  parse_str($url3['query'],$params3);
+                  $link_id3=$params3['trip_id'];
+                  $tripid3=Trips::Where('trip_id',$link_id3)->first();
+                  
+                  $url4= parse_url($link4);
+                  parse_str($url4['query'],$params4);
+                  $link_id4=$params4['trip_id'];
+                  $tripid4=Trips::Where('trip_id',$link_id4)->first();
+
                   $ticket_link=[
                       'link1'=>$link1,
+                      'link1_from'=>$tripid1->trip_from,
+                      'link1_to'=>$tripid1->trip_to,
+
                       'link2'=>$link2,
+                      'link2_from'=>$tripid2->trip_from,
+                      'link2_to'=>$tripid2->trip_to,
+
                       'link3'=>$link3,
-                      'link4'=>$link4
+                      'link3_from'=>$tripid3->trip_from,
+                      'link3_to'=>$tripid3->trip_to,
+
+                      'link4'=>$link4,
+                      'link4_from'=>$tripid4->trip_from,
+                      'link4_to'=>$tripid4->trip_to,
                   ];
+
+
                   $sendmail= Mail::to( $user_details['email'])->send(new Ticketmail($title,$user_details,$ticket_link));
 
                   if(empty($sendmail)){
@@ -99,10 +134,24 @@ class AchanmailerController extends Controller
                     'email'=>$email,
                     'name'=>$name
                 ];
+
+                $url1= parse_url($link1);
+                parse_str($url1['query'],$params);
+                $link_id1=$params['trip_id'];
+                $tripid1=Trips::Where('trip_id',$link_id1)->first();
+                
+                $url2= parse_url($link2);
+                parse_str($url2['query'],$params2);
+                $link_id2=$params2['trip_id'];
+                $tripid2=Trips::Where('trip_id',$link_id2)->first();
                 $ticket_link=[
                     'link1'=>$link1,
-                    'link2'=>$link2,
-                    
+                      'link1_from'=>$tripid1->trip_from,
+                      'link1_to'=>$tripid1->trip_to,
+
+                      'link2'=>$link2,
+                      'link2_from'=>$tripid2->trip_from,
+                      'link2_to'=>$tripid2->trip_to,
                     
                 ];
                 $sendmail= Mail::to( $user_details['email'])->send(new Ticketmail($title,$user_details,$ticket_link));
