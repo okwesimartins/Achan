@@ -119,14 +119,14 @@
 													</tbody>
 												</table>
 
-                                                            <!-- second ticket -->
+                                                            <!-- second ticket start-->
 
 
                                                             <table border="0" cellpadding="0" cellspacing="0" width="100%" class="tableDescription" style="">
 													<tbody>
 														<tr>
 															<td style="padding-bottom: 20px;" align="center" valign="top" class="description">
-																<h4  style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket.</h4>
+																<p  style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">from {{$ticket_link['link2_from']}} to {{$ticket_link['link2_to']}}</b></p>
 															</td>
 														</tr>
 													</tbody>
