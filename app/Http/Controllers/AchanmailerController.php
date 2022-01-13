@@ -138,6 +138,8 @@ class AchanmailerController extends Controller
                 $url1= parse_url($link1);
                 parse_str($url1['query'],$params);
                 $link_id1=$params['trip_id'];
+
+                dd($link_id1);
                 $tripid1=Trips::Where('trip_id',$link_id1)->first();
                 
                 $url2= parse_url($link2);
