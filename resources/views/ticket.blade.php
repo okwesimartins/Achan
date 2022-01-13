@@ -173,7 +173,7 @@
 											<td align="center" valign="middle" style="padding-bottom: 40px;" class="emailRegards">
 												<!-- Image and Link // -->
 												<a href="#" target="_blank" style="text-decoration:none;">
-													<img mc:edit="signature" src="{{ asset('img/achantaxi.png') }}" alt="" width="150" border="0" style="width:100%;
+													<img mc:edit="signature" src="{{ asset('img/achantaxinew.png') }}" alt="" width="150" border="0" style="width:100%;
     max-width:150px; height:auto; display:block;">
 												</a>
 											</td>
@@ -381,7 +381,7 @@
 											<td align="center" valign="middle" style="padding-bottom: 40px;" class="emailRegards">
 												<!-- Image and Link // -->
 												<a href="#" target="_blank" style="text-decoration:none;">
-													<img mc:edit="signature" src="{{ asset('img/achantaxi.png') }}" alt="" width="150" border="0" style="width:100%;
+													<img mc:edit="signature" src="{{ asset('img/achantaxinew.png') }}" alt="" width="150" border="0" style="width:100%;
                                                                   max-width:150px; height:auto; display:block;">
 												</a>
 											</td>
@@ -560,7 +560,7 @@
 											<td align="center" valign="middle" style="padding-bottom: 40px;" class="emailRegards">
 												<!-- Image and Link // -->
 												<a href="#" target="_blank" style="text-decoration:none;">
-													<img mc:edit="signature" src="{{ asset('img/achantaxi.png') }}" alt="" width="150" border="0" style="width:100%;
+													<img mc:edit="signature" src="{{ asset('img/achantaxinew.png') }}" alt="" width="150" border="0" style="width:100%;
                                                                   max-width:150px; height:auto; display:block;">
 												</a>
 											</td>
