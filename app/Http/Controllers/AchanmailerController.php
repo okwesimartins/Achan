@@ -135,37 +135,72 @@ class AchanmailerController extends Controller
                     'name'=>$name
                 ];
 
+             
+                
+                if($link1 && $link2){
                 $url1= parse_url($link1);
                 parse_str($url1['query'],$params);
                 $link_id1=$params['trip_id'];
-
-                
                 $tripid1=Trips::Where('id',$link_id1)->first();
-                
+
                 $url2= parse_url($link2);
                 parse_str($url2['query'],$params2);
                 $link_id2=$params2['trip_id'];
                 $tripid2=Trips::Where('id',$link_id2)->first();
 
-               
                 $ticket_link=[
+
                     'link1'=>$link1,
-                      'link1_from'=>$tripid1->trip_from,
-                      'link1_to'=>$tripid1->trip_to,
+                    'link1_from'=>$tripid1->trip_from,
+                    'link1_to'=>$tripid1->trip_to,
 
-                      'link2'=>$link2,
-                      'link2_from'=>$tripid2->trip_from,
-                      'link2_to'=>$tripid2->trip_to,
-                    
-                ];
-                $sendmail= Mail::to( $user_details['email'])->send(new Ticketmail($title,$user_details,$ticket_link));
+                    'link2'=>$link2,
+                    'link2_from'=>$tripid2->trip_from,
+                    'link2_to'=>$tripid2->trip_to,
+                  
+              ];
+              $sendmail= Mail::to( $user_details['email'])->send(new Ticketmail($title,$user_details,$ticket_link));
 
-                if(empty($sendmail)){
-                       return response()->json([
-                           "status"=>"success",
-                           "message"=>"Email Sent"
-                       ]);
-                }
+              if(empty($sendmail)){
+                     return response()->json([
+                         "status"=>"success",
+                         "message"=>"Email Sent"
+                     ]);
+              }
+                 }else{
+
+
+                    $url1= parse_url($link1);
+                    parse_str($url1['query'],$params);
+                    $link_id1=$params['trip_id'];
+                    $tripid1=Trips::Where('id',$link_id1)->first();
+    
+                 
+    
+                    $ticket_link=[
+    
+                        'link1'=>$link1,
+                        'link1_from'=>$tripid1->trip_from,
+                        'link1_to'=>$tripid1->trip_to,
+                      
+                  ];
+                  $sendmail= Mail::to( $user_details['email'])->send(new Ticketmail($title,$user_details,$ticket_link));
+    
+                  if(empty($sendmail)){
+                         return response()->json([
+                             "status"=>"success",
+                             "message"=>"Email Sent"
+                         ]);
+                  }
+                 }
+             
+                
+
+                
+                
+
+               
+             
               }
 
 
