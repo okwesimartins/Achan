@@ -140,12 +140,12 @@ class AchanmailerController extends Controller
                 $link_id1=$params['trip_id'];
 
                 
-                $tripid1=Trips::Where('trip_id',$link_id1)->first();
+                $tripid1=Trips::Where('id',$link_id1)->first();
                 
                 $url2= parse_url($link2);
                 parse_str($url2['query'],$params2);
                 $link_id2=$params2['trip_id'];
-                $tripid2=Trips::Where('trip_id',$link_id2)->first();
+                $tripid2=Trips::Where('id',$link_id2)->first();
 
                 dd($tripid1);
                 $ticket_link=[
