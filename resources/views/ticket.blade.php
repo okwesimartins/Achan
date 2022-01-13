@@ -97,7 +97,7 @@
 													<tbody>
 														<tr>
 															<td style="padding-bottom: 20px;" align="center" valign="top" class="description">
-																<p class="text" style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket.</p>
+																<p class="text" style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link1_from']}} To {{$ticket_link['link1_to']}}.</b></p>
 															</td>
 														</tr>
 													</tbody>
@@ -109,7 +109,7 @@
 																<table border="0" cellpadding="0" cellspacing="0" align="center">
 																	<tbody>
 																		<tr>
-																			<td style="background-color:#00A859; padding: 12px 35px; border-radius: 50px;" align="center" class="ctaButton"> <a href="#" style="color:#fff;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;font-style:normal;letter-spacing:1px;line-height:20px;text-transform:uppercase;text-decoration:none;display:block" target="_blank" class="text">View ticket</a>
+																			<td style="background-color:#00A859; padding: 12px 35px; border-radius: 50px;" align="center" class="ctaButton"> <a href="{{$ticket_link['link1']}}" style="color:#fff;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;font-style:normal;letter-spacing:1px;line-height:20px;text-transform:uppercase;text-decoration:none;display:block" target="_blank" class="text">View ticket</a>
 																			</td>
 																		</tr>
 																	</tbody>
@@ -126,7 +126,7 @@
 													<tbody>
 														<tr>
 															<td style="padding-bottom: 20px;" align="center" valign="top" class="description">
-																<p  style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">from {{$ticket_link['link2_from']}} to {{$ticket_link['link2_to']}}</b></p>
+																<p  style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link2_from']}} To {{$ticket_link['link2_to']}}.</b></p>
 															</td>
 														</tr>
 													</tbody>
@@ -138,7 +138,7 @@
 																<table border="0" cellpadding="0" cellspacing="0" align="center">
 																	<tbody>
 																		<tr>
-																			<td style="background-color:#00A859; padding: 12px 35px; border-radius: 50px;" align="center" class="ctaButton"> <a href="#" style="color:#fff;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;font-style:normal;letter-spacing:1px;line-height:20px;text-transform:uppercase;text-decoration:none;display:block" target="_blank" class="text">View ticket</a>
+																			<td style="background-color:#00A859; padding: 12px 35px; border-radius: 50px;" align="center" class="ctaButton"> <a href="{{$ticket_link['link2']}}" style="color:#fff;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:13px;font-weight:600;font-style:normal;letter-spacing:1px;line-height:20px;text-transform:uppercase;text-decoration:none;display:block" target="_blank" class="text">View ticket</a>
 																			</td>
 																		</tr>
 																	</tbody>
