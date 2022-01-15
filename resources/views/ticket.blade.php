@@ -268,7 +268,7 @@
        
 
 <!-- © 2022 achantaxi -->
-<table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:fixed;background-color:" id="bodyTable">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout:fixed;background-color: #261E1E" id="bodyTable">
 	<tbody>
 		<tr>
 			<td style="padding-right:10px;padding-left:10px;" align="center" valign="top" id="bodyCell">
