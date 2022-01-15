@@ -24,7 +24,7 @@
 					<tbody>
 						<tr>
 							<td align="center" valign="top">
-								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="tableCard" style="background-color:#fff;border-color:#e5e5e5;border-style:solid;border-width:0 1px 1px 1px;">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="tableCard" style="background-color:#0A0707;border-color:#e5e5e5;border-style:solid;border-width:0 1px 1px 1px;">
 									<tbody>
 										<tr>
 											<td style="background-color:#00A859;font-size:1px;line-height:3px" class="topBorder" height="3">&nbsp;</td>
@@ -41,12 +41,12 @@
 										</tr>
 										<tr>
 											<td style="padding-bottom: 5px; padding-left: 20px; padding-right: 20px;" align="center" valign="top" class="mainTitle">
-												<h2 class="text" style="color:#000;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:28px;font-weight:500;font-style:normal;letter-spacing:normal;line-height:36px;text-transform:none;text-align:center;padding:0;margin:0">Hello {{ $user_details['name'] }}</h2>
+												<h2 class="text" style="color:white;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:28px;font-weight:500;font-style:normal;letter-spacing:normal;line-height:36px;text-transform:none;text-align:center;padding:0;margin:0">Hello {{ $user_details['name'] }}</h2>
 											</td>
 										</tr>
 										<tr>
 											<td style="padding-bottom: 30px; padding-left: 20px; padding-right: 20px;" align="center" valign="top" class="subTitle">
-												<h4 class="text" style="color:#999;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;font-style:normal;letter-spacing:normal;line-height:24px;text-transform:none;text-align:center;padding:0;margin:0">View airport taxi ticket</h4>
+												<h4 class="text" style="color:white;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;font-style:normal;letter-spacing:normal;line-height:24px;text-transform:none;text-align:center;padding:0;margin:0">View airport taxi ticket</h4>
 											</td>
 										</tr>
 										<tr>
@@ -55,7 +55,7 @@
 													<tbody>
 														<tr>
 															<td style="padding-bottom: 20px;" align="center" valign="top" class="description">
-																<p class="text" style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link1_from']}} To {{$ticket_link['link1_to']}}.</b></p>
+																<p class="text" style="color:white;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link1_from']}} To {{$ticket_link['link1_to']}}.</b></p>
 															</td>
 														</tr>
 													</tbody>
@@ -84,7 +84,7 @@
 													<tbody>
 														<tr>
 															<td style="padding-bottom: 20px;" align="center" valign="top" class="description">
-																<p  style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link2_from']}} To {{$ticket_link['link2_to']}}.</b></p>
+																<p  style="color:white;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link2_from']}} To {{$ticket_link['link2_to']}}.</b></p>
 															</td>
 														</tr>
 													</tbody>
@@ -114,7 +114,7 @@
 													<tbody>
 														<tr>
 															<td style="padding-bottom: 20px;" align="center" valign="top" class="description">
-																<p  style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link3_from']}} To {{$ticket_link['link3_to']}}.</b></p>
+																<p  style="color:white;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link3_from']}} To {{$ticket_link['link3_to']}}.</b></p>
 															</td>
 														</tr>
 													</tbody>
@@ -143,7 +143,7 @@
 													<tbody>
 														<tr>
 															<td style="padding-bottom: 20px;" align="center" valign="top" class="description">
-																<p  style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link4_from']}} To {{$ticket_link['link4_to']}}.</b></p>
+																<p  style="color:white;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link4_from']}} To {{$ticket_link['link4_to']}}.</b></p>
 															</td>
 														</tr>
 													</tbody>
@@ -351,7 +351,7 @@
 													<tbody>
 														<tr>
 															<td style="padding-bottom: 20px;" align="center" valign="top" class="description">
-																<p  style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link2_from']}} To {{$ticket_link['link2_to']}}.</b></p>
+																<p  style="color:white;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link2_from']}} To {{$ticket_link['link2_to']}}.</b></p>
 															</td>
 														</tr>
 													</tbody>
@@ -497,7 +497,7 @@
 					<tbody>
 						<tr>
 							<td align="center" valign="top">
-								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="tableCard" style="background-color:#fff;border-color:#e5e5e5;border-style:solid;border-width:0 1px 1px 1px;">
+								<table border="0" cellpadding="0" cellspacing="0" width="100%" class="tableCard" style="background-color:#0A0707;border-color:#e5e5e5;border-style:solid;border-width:0 1px 1px 1px;">
 									<tbody>
 										<tr>
 											<td style="background-color:#00A859;font-size:1px;line-height:3px" class="topBorder" height="3">&nbsp;</td>
@@ -514,12 +514,12 @@
 										</tr>
 										<tr>
 											<td style="padding-bottom: 5px; padding-left: 20px; padding-right: 20px;" align="center" valign="top" class="mainTitle">
-												<h2 class="text" style="color:#000;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:28px;font-weight:500;font-style:normal;letter-spacing:normal;line-height:36px;text-transform:none;text-align:center;padding:0;margin:0">Hello {{ $user_details['name'] }}</h2>
+												<h2 class="text" style="color:white;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:28px;font-weight:500;font-style:normal;letter-spacing:normal;line-height:36px;text-transform:none;text-align:center;padding:0;margin:0">Hello {{ $user_details['name'] }}</h2>
 											</td>
 										</tr>
 										<tr>
 											<td style="padding-bottom: 30px; padding-left: 20px; padding-right: 20px;" align="center" valign="top" class="subTitle">
-												<h4 class="text" style="color:#999;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;font-style:normal;letter-spacing:normal;line-height:24px;text-transform:none;text-align:center;padding:0;margin:0">View airport taxi ticket</h4>
+												<h4 class="text" style="color:white;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;font-style:normal;letter-spacing:normal;line-height:24px;text-transform:none;text-align:center;padding:0;margin:0">View airport taxi ticket</h4>
 											</td>
 										</tr>
 										<tr>
@@ -528,7 +528,7 @@
 													<tbody>
 														<tr>
 															<td style="padding-bottom: 20px;" align="center" valign="top" class="description">
-																<p class="text" style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link1_from']}} To {{$ticket_link['link1_to']}}.</b></p>
+																<p class="text" style="color:white;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link1_from']}} To {{$ticket_link['link1_to']}}.</b></p>
 															</td>
 														</tr>
 													</tbody>
