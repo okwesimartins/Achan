@@ -49,8 +49,8 @@ class Booktrips extends Controller
         $phone_num= $achanbranchloca->phone_num;
         $whatapp= $achanbranchloca->wha_num;
         
-        $driver= driver::inRandomOrder()->first();
-        $driver_id= $driver->driver_id;
+        // $driver= driver::inRandomOrder()->first();
+        // $driver_id= $driver->driver_id;
         
         
         
@@ -62,7 +62,6 @@ class Booktrips extends Controller
             'email'=>$email,
             'surname'=>$surname,
             'passenger_phone'=>$phonenumber,
-            'driver_id'=>$driver_id,
             'trip_id'=> $tripid,
             'date'=>$date,
             'time'=>$time,
@@ -147,8 +146,8 @@ class Booktrips extends Controller
         $whatapp= $achanbranchloca->wha_num;
 
 
-        $driver= driver::inRandomOrder()->first();
-        $driver_id= $driver->driver_id;
+        // $driver= driver::inRandomOrder()->first();
+        // $driver_id= $driver->driver_id;
         
 
         $create_trip= Trips::create([
@@ -159,7 +158,7 @@ class Booktrips extends Controller
             'email'=>$email,
             'surname'=>$surname,
             'passenger_phone'=>$phonenumber,
-            'driver_id'=>$driver_id,
+          
             'trip_id'=> $tripid,
             'date'=>$date,
             'time'=>$time,
@@ -242,8 +241,8 @@ class Booktrips extends Controller
         $whatapp= $achanbranchloca->wha_num;
 
 
-        $driver= driver::inRandomOrder()->first();
-        $driver_id= $driver->driver_id;
+        // $driver= driver::inRandomOrder()->first();
+        // $driver_id= $driver->driver_id;
         
         $pickupaddress=$request->pickupaddress;
         $secondfrom = $request->pickup_area;
@@ -269,7 +268,7 @@ class Booktrips extends Controller
             'email'=>$email,
             'surname'=>$surname,
             'passenger_phone'=>$phonenumber,
-            'driver_id'=>$driver_id,
+            
             'trip_id'=> $secondtripid,
             'date'=>$date,
             'time'=>$time,
@@ -301,7 +300,7 @@ class Booktrips extends Controller
         'email'=>$email,
         'surname'=>$surname,
         'passenger_phone'=>$phonenumber,
-        'driver_id'=>$driver_id,
+       
         'trip_id'=> $tripid,
         'date'=>$date,
         'time'=>$estimated_arivaltime,
@@ -404,8 +403,8 @@ class Booktrips extends Controller
         $whatapp= $achanbranchloca->wha_num;
 
 
-        $driver= driver::inRandomOrder()->first();
-        $driver_id= $driver->driver_id;
+        // $driver= driver::inRandomOrder()->first();
+        // $driver_id= $driver->driver_id;
         
         $pickupaddress=$request->pickupaddress;
         $secondfrom = $request->pickup_area;
@@ -431,7 +430,7 @@ class Booktrips extends Controller
             'email'=>$email,
             'surname'=>$surname,
             'passenger_phone'=>$phonenumber,
-            'driver_id'=>$driver_id,
+          
             'trip_id'=> $secondtripid,
             'date'=>$date,
             'time'=>$time,
@@ -463,7 +462,7 @@ class Booktrips extends Controller
         'email'=>$email,
         'surname'=>$surname,
         'passenger_phone'=>$phonenumber,
-        'driver_id'=>$driver_id,
+       
         'trip_id'=> $tripid,
         'date'=>$date,
         'time'=>$estimated_arivaltime,
@@ -493,7 +492,7 @@ class Booktrips extends Controller
     'email'=>$email,
     'surname'=>$surname,
     'passenger_phone'=>$phonenumber,
-    'driver_id'=>$driver_id,
+    
     'trip_id'=> $secondtripid,
     'date'=>$returndate,
     'time'=>$returntime,
@@ -525,7 +524,7 @@ $create_trip4= Trips::create([
     'email'=>$email,
     'surname'=>$surname,
     'passenger_phone'=>$phonenumber,
-    'driver_id'=>$driver_id,
+   
     'trip_id'=> $tripid,
     'date'=>$returndate,
     'time'=>$estimated_returnarivaltime,
