@@ -308,12 +308,12 @@
 										</tr>
 										<tr>
 											<td style="padding-bottom: 5px; padding-left: 20px; padding-right: 20px;" align="center" valign="top" class="mainTitle">
-												<h2 class="text" style="color:#000;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:28px;font-weight:500;font-style:normal;letter-spacing:normal;line-height:36px;text-transform:none;text-align:center;padding:0;margin:0">Hello {{ $user_details['name'] }}</h2>
+												<h2 class="text" style="color:white;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:28px;font-weight:500;font-style:normal;letter-spacing:normal;line-height:36px;text-transform:none;text-align:center;padding:0;margin:0">Hello {{ $user_details['name'] }}</h2>
 											</td>
 										</tr>
 										<tr>
 											<td style="padding-bottom: 30px; padding-left: 20px; padding-right: 20px;" align="center" valign="top" class="subTitle">
-												<h4 class="text" style="color:#999;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;font-style:normal;letter-spacing:normal;line-height:24px;text-transform:none;text-align:center;padding:0;margin:0">View airport taxi ticket</h4>
+												<h4 class="text" style="color:white;font-family:Poppins,Helvetica,Arial,sans-serif;font-size:16px;font-weight:500;font-style:normal;letter-spacing:normal;line-height:24px;text-transform:none;text-align:center;padding:0;margin:0">View airport taxi ticket</h4>
 											</td>
 										</tr>
 										<tr>
@@ -322,7 +322,7 @@
 													<tbody>
 														<tr>
 															<td style="padding-bottom: 20px;" align="center" valign="top" class="description">
-																<p class="text" style="color:#666;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link1_from']}} To {{$ticket_link['link1_to']}}.</b></p>
+																<p class="text" style="color:white;font-family:'Open Sans',Helvetica,Arial,sans-serif;font-size:14px;font-weight:400;font-style:normal;letter-spacing:normal;line-height:22px;text-transform:none;text-align:center;padding:0;margin:0">Thank you for choosing achantaxi please click the buttons bellow to view your ticket <b style="color:white">From {{$ticket_link['link1_from']}} To {{$ticket_link['link1_to']}}.</b></p>
 															</td>
 														</tr>
 													</tbody>
