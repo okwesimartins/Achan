@@ -332,7 +332,8 @@ class Booktrips extends Controller
          "from"=>$create_trip2->trip_from,
          "destination"=>$create_trip2->trip_to,
          "phone_num"=>$phone_num,
-         "whatapp"=>$whatapp
+         "whatapp"=>$whatapp,
+         "thank"=>"thatns"
          ],
          "second_ticket"=>[
             "trip_id"=> $create_trip->id,
